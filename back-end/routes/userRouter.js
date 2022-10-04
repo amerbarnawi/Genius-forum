@@ -1,6 +1,7 @@
 import express from "express";
 
-import isUserAuthenticated, { isUserFound } from "../support/middleware.js";
+import isUserAuthenticated from "../support/middleware/authentication.js";
+import { isUserFound } from "../support/middleware/checkUser.js";
 import {
   createUser,
   deleteAccount,

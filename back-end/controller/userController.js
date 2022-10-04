@@ -12,7 +12,7 @@ export async function login(req, res) {
 
       res.status(200).json(registeredUser);
     }
-    await dbConnection(readData);
+    await dbConnection(readData, "user");
   } catch (error) {
     console.log(error);
     errorMessage(res);
@@ -23,7 +23,7 @@ export async function login(req, res) {
 
 // Creating new user:
 export async function createUser(req, res) {
-  const { userName, password, email } = req.body;
+  const { userName, password, email, logo } = req.body;
 
   if (!userName || !password || !email) {
     res
@@ -38,11 +38,12 @@ export async function createUser(req, res) {
         userName: userName,
         email: email,
         password: password,
+        logo: logo,
         date: new Date(),
       });
     }
 
-    await dbConnection(writeData);
+    await dbConnection(writeData, "user");
 
     res.status(201).json({ message: "Creating the user is done!" });
   } catch (error) {
@@ -66,7 +67,7 @@ export async function deleteAccount(req, res) {
         .json({ message: "Deleting your account is done, we will miss you!" });
     }
 
-    await dbConnection(deleteData);
+    await dbConnection(deleteData, "user");
   } catch (error) {
     console.log(error);
     errorMessage(res);
@@ -98,7 +99,7 @@ export async function updateUserData(req, res) {
       res.status(201).json({ message: "Updating your account is done!" });
     }
 
-    await dbConnection(updateData);
+    await dbConnection(updateData, "user");
   } catch (error) {
     console.log(error);
     errorMessage(res);

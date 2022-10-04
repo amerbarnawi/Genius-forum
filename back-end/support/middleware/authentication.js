@@ -1,5 +1,4 @@
-import dbConnection from "../dbConnection.js";
-import { errorMessage } from "./helper.js";
+import dbConnection from "../../dbConnection.js";
 
 // User middleware:
 
@@ -30,33 +29,11 @@ export default async function isUserAuthenticated(req, res, next) {
         });
       }
     }
-    await dbConnection(readData);
+    await dbConnection(readData, "user");
   } catch (error) {
     console.log(error);
     res
       .status(500)
       .json({ message: "Something went wrong, please, try later!" });
-  }
-}
-
-export async function isUserFound(req, res, next) {
-  const { email } = req.body;
-
-  try {
-    async function readData(userCollection) {
-      const registeredUser = await userCollection.findOne({ email: email });
-
-      if (registeredUser) {
-        res
-          .status(400)
-          .json({ message: "Sorry, this account is already exist!" });
-      } else {
-        next();
-      }
-    }
-    await dbConnection(readData);
-  } catch (error) {
-    console.log(error);
-    errorMessage(res);
   }
 }
