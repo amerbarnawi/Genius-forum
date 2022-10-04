@@ -1,6 +1,6 @@
 import express from "express";
 
-// import userRouter from "./routes/userRouter.js";
+import userRouter from "./routes/userRouter.js";
 
 const app = express();
 
@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
   res.send("Done");
 });
 
-// app.use("/api/user", userRouter);
+app.use("/api/user", userRouter);
 
 export default app;
