@@ -4,20 +4,28 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Welcome from "./components/Welcome/Welcome";
 import IqTest from "./components/IQ-test/IqTest";
+import { LoginProvider } from "./components/Forum/Login/LoginProvider";
 import Forum from "./components/Forum/Forum";
+import Login from "./components/Forum/Login/Login";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route path="/" element={<Welcome />} />
-            <Route path="iq-test" element={<IqTest />} />
-            <Route path="forum" element={<Forum />} />
-          </Route>
-        </Routes>
-      </Router>
+      <LoginProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />}>
+              <Route path="/" element={<Welcome />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="iq-test" element={<IqTest />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="forum" element={<Forum />}></Route>
+              </Route>
+            </Route>
+          </Routes>
+        </Router>
+      </LoginProvider>
     </div>
   );
 }

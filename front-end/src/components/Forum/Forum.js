@@ -1,13 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+// import { useLogin } from "./Login/LoginProvider";
 
 function Forum() {
+  // const loggedIn = useLogin;
   return (
-    <main>
-      <h1>Welcome to the forum</h1>
-
-      <NavLink to="/">Home page</NavLink>
-    </main>
+    <div>
+      <main>
+        <h1>Welcome to the forum</h1>
+        <Outlet />
+        <NavLink to="/">Home page</NavLink>
+      </main>
+    </div>
   );
 }
 
