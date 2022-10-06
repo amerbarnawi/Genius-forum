@@ -10,34 +10,34 @@ export function useLike() {
 export function LikeProvider({ children }) {
   const { userData } = useLoginDetails();
 
-  const updateLike = async (challenge, likes, setLikes, setIsLike, isLike) => {
+  async function updateLikeRequest(challenge, action) {
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ action: action, user: userData.userName }),
+    };
+
+    const url = `http://localhost:5000/api/forum/challenge/like/${challenge._id}?email=${userData.email}&password=${userData.password}`;
+    await fetch(url, requestOptions);
+  }
+
+  const updateLike = async (challenge, setChallenge) => {
+    const isLike = challenge.interaction.likes.includes(userData.userName);
     if (isLike) {
-      if (likes > 0) {
-        setLikes(likes - 1);
-      }
-
-      setIsLike(false);
-
-      const requestOptions = {
-        method: "PUT",
-        headers: { "Content-type": "application/json; charset=utf-8" },
-        body: JSON.stringify({ action: "delete", user: challenge.publisher }),
-      };
-
-      const url = `http://localhost:5000/api/forum/challenge/like/${challenge._id}?email=${userData.email}&password=${userData.password}`;
-      await fetch(url, requestOptions);
+      const newLikesArray = challenge.interaction.likes.filter(
+        (user) => user !== userData.userName
+      );
+      challenge.interaction.likes = newLikesArray;
+      setChallenge((challenge) => {
+        return { ...challenge };
+      });
+      updateLikeRequest(challenge, "delete");
     } else {
-      setLikes(likes + 1);
-      setIsLike(true);
-
-      const requestOptions = {
-        method: "PUT",
-        headers: { "Content-type": "application/json; charset=utf-8" },
-        body: JSON.stringify({ action: "add", user: challenge.publisher }),
-      };
-
-      const url = `http://localhost:5000/api/forum/challenge/like/${challenge._id}?email=${userData.email}&password=${userData.password}`;
-      await fetch(url, requestOptions);
+      challenge.interaction.likes.push(userData.userName);
+      setChallenge((challenge) => {
+        return { ...challenge };
+      });
+      updateLikeRequest(challenge, "add");
     }
   };
 

@@ -20,7 +20,7 @@ function Main() {
         <h2>Loading ..</h2>
       ) : (
         data.map((challenge, index) => {
-          return <ChallengePost key={index} challenge={challenge} />;
+          return <ChallengePost key={index} originalChallenge={challenge} />;
         })
       )}
     </div>
