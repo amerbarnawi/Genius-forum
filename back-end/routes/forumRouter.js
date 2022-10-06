@@ -48,4 +48,6 @@ forumRouter.put("/like/:id", isChallengeFound, editLike);
 // Adding Comment:
 forumRouter.put("/comment/:id", isChallengeFound, editComment);
 
+forumRouter.get("/", findChallengeByTitle);
+
 export default forumRouter;
