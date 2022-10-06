@@ -8,6 +8,7 @@ import { LoginProvider } from "./components/Forum/Login/LoginProvider";
 import Forum from "./components/Forum/Forum";
 import Login from "./components/Forum/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import ChallengeById from "./components/Forum/Main/Challenge/DeliveryPage";
 
 function App() {
   return (
@@ -20,7 +21,13 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="iq-test" element={<IqTest />} />
               <Route element={<ProtectedRoute />}>
-                <Route path="forum" element={<Forum />}></Route>
+                <Route path="forum" element={<Forum />} replace>
+                  <Route
+                    path="challenge/:id"
+                    element={<ChallengeById />}
+                    replace
+                  />
+                </Route>
               </Route>
             </Route>
           </Routes>
