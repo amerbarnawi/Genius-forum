@@ -7,6 +7,7 @@ import {
   deleteAccount,
   updateUserData,
   login,
+  updateFavorites,
 } from "../controller/userController.js";
 
 const userRouter = express.Router();
@@ -18,5 +19,7 @@ userRouter.post("/create", isUserFound, createUser);
 userRouter.put("/update/:id", isUserAuthenticated, updateUserData);
 
 userRouter.delete("/delete/:id", isUserAuthenticated, deleteAccount);
+
+userRouter.put("/favorites/:id", updateFavorites);
 
 export default userRouter;

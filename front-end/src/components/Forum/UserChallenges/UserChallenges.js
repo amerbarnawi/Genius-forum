@@ -1,13 +1,16 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import useFetchData from "../../Hooks/FetchHook";
 import { useLoginDetails } from "../Login/LoginProvider";
+import ChallengePost from "../Main/Challenge/ChallengePost";
 
 import ChallengeCard from "./ChallengeCard";
 
 function UserChallenges() {
   const { userData } = useLoginDetails();
   const { email, password } = userData;
+  const { id } = useParams();
 
   const url = `http://localhost:5000/api/forum/challenge/title/?title=&email=${email}&password=${password}`;
 
@@ -23,7 +26,11 @@ function UserChallenges() {
         data
           .filter((challenge) => challenge.publisher === email)
           .map((challenge, index) => {
-            return <ChallengeCard key={index} challenge={challenge} />;
+            return id === "my-page" ? (
+              <ChallengePost key={index} originalChallenge={challenge} />
+            ) : (
+              <ChallengeCard key={index} challenge={challenge} />
+            );
           })
       )}
     </div>

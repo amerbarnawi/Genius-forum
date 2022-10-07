@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import FavoriteIcon from "../../Favorites/FavoriteIcon";
+
 // import { useLoginDetails } from "../../Login/LoginProvider";
 import { useComment } from "./CommentProvider";
 import { useLike } from "./LikeProvider";
@@ -35,6 +37,7 @@ function ChallengePost({ originalChallenge }) {
 
   return (
     <div key={challenge._id} className="challenge-post">
+      <FavoriteIcon ChallengeId={challenge._id} />
       <h2>{challenge.title}</h2>
       <p>{challenge.publisher}</p>
       <p>{currentDate.toDateString()}</p>

@@ -40,6 +40,7 @@ export async function createUser(req, res) {
         password: password,
         logo: logo,
         date: new Date(),
+        favorites: [],
       });
     }
 
@@ -107,3 +108,25 @@ export async function updateUserData(req, res) {
 }
 
 //**********************************************************************
+
+// Add to favorite:
+
+export async function updateFavorites(req, res) {
+  const id = req.params.id;
+  const { favorites } = req.body;
+  try {
+    async function updateData(userCollection) {
+      await userCollection.updateOne(
+        { _id: ObjectId(id) },
+        { $set: { favorites: favorites } }
+      );
+
+      res.status(201).json({ message: "Updating your favorites is don!" });
+    }
+
+    await dbConnection(updateData, "user");
+  } catch (error) {
+    console.log(error);
+    errorMessage(res);
+  }
+}
