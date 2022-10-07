@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useLoginDetails } from "../../Login/LoginProvider";
+// import { useLoginDetails } from "../../Login/LoginProvider";
 import { useComment } from "./CommentProvider";
 import { useLike } from "./LikeProvider";
 
 function ChallengePost({ originalChallenge }) {
-  console.log(originalChallenge._id);
   const [challenge, setChallenge] = useState(originalChallenge);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ function ChallengePost({ originalChallenge }) {
   const currentDate = new Date(challenge.date);
   const likeArrayLength = challenge.interaction.likes.length;
   const commentArrayLength = challenge.interaction.comments.length;
-  console.log(challenge._id);
 
   // const [isLike, setIsLike] = useState(false);
   const [comment, setComment] = useState("");
@@ -22,7 +20,7 @@ function ChallengePost({ originalChallenge }) {
   const { updateLike } = useLike();
   const { addComment, deleteComment } = useComment();
 
-  const { userData } = useLoginDetails();
+  // const { userData } = useLoginDetails();
 
   // const likesIncludesUser = challenge.interaction.likes.includes(
   //   userData.email
@@ -37,8 +35,8 @@ function ChallengePost({ originalChallenge }) {
 
   return (
     <div key={challenge._id} className="challenge-post">
-      {console.log(challenge._id)}
       <h2>{challenge.title}</h2>
+      <p>{challenge.publisher}</p>
       <p>{currentDate.toDateString()}</p>
       <p>{challenge.body}</p>
       {challenge.image !== "" ? (

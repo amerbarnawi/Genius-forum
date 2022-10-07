@@ -9,6 +9,7 @@ import Forum from "./components/Forum/Forum";
 import Login from "./components/Forum/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import ChallengeById from "./components/Forum/Main/Challenge/DeliveryPage";
+import UserPage from "./components/Forum/UserChallenges/UserPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="iq-test" element={<IqTest />} />
               <Route element={<ProtectedRoute />}>
                 <Route path="forum" element={<Forum />} replace>
+                  <Route path="userHome/:id" element={<UserPage />} />
                   <Route
                     path="challenge/:id"
                     element={<ChallengeById />}

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { useLoginDetails } from "../Forum/Login/LoginProvider";
 
 function ForumBanner() {
@@ -7,9 +8,10 @@ function ForumBanner() {
     <div>
       <div>
         <img src={userData.logo} alt={userData.userName} />
-        <h3>{userData.userName}</h3>
+        <h3>{userData.userName.toUpperCase()}</h3>
       </div>
       <h1>Welcome to the forum</h1>
+      <NavLink to="/forum/userHome/my-page">My page</NavLink>
     </div>
   );
 }
