@@ -55,33 +55,6 @@ export function CommentProvider({ children }) {
       return { ...challenge };
     });
     updateCommentFetch(challenge, commentBody);
-
-    // if (true) {
-    //   const newLikesArray = challenge.interaction.likes.filter(
-    //     (user) => user !== userData.userName
-    //   );
-    //   challenge.interaction.likes = newLikesArray;
-    //   setChallenge((challenge) => {
-    //     return { ...challenge };
-    //   });
-    //   updateLikeRequest(challenge, "delete");
-    //   console.log(challenge);
-    // } else {
-    //   challenge.interaction.likes.push(userData.userName);
-    //   setChallenge((challenge) => {
-    //     return { ...challenge };
-    //   });
-    //   updateLikeRequest(challenge, "add");
-    //   console.log(challenge);
-    // }
-
-    //     setChallenge(challenge.interaction.comments.push({}));
-    //     const commentBody = {
-    //       action: "add",
-    //       text: commentText,
-    //       user: userData.userName,
-    //     };
-    //     updateCommentFetch(challenge, commentBody);
   };
 
   return (

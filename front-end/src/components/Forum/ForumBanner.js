@@ -14,6 +14,8 @@ function ForumBanner() {
       <NavLink to="/forum/userHome/my-page">My page</NavLink>
       <br />
       <NavLink to="/forum/favorites/my-favorites">Favorites</NavLink>
+      <br />
+      <NavLink to="/forum">Forum Home</NavLink>
     </div>
   );
 }

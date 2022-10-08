@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import FavoriteIcon from "../../Favorites/FavoriteIcon";
-
-// import { useLoginDetails } from "../../Login/LoginProvider";
+import Popup from "../../Support/Popup";
 import { useComment } from "./CommentProvider";
+import DeleteChallenge from "./DeleteChallenge";
 import { useLike } from "./LikeProvider";
 
 function ChallengePost({ originalChallenge }) {
   const [challenge, setChallenge] = useState(originalChallenge);
+  const [trigger, setTrigger] = useState(false);
 
   useEffect(() => {
     setChallenge(originalChallenge);
@@ -16,28 +17,27 @@ function ChallengePost({ originalChallenge }) {
   const likeArrayLength = challenge.interaction.likes.length;
   const commentArrayLength = challenge.interaction.comments.length;
 
-  // const [isLike, setIsLike] = useState(false);
   const [comment, setComment] = useState("");
-
   const { updateLike } = useLike();
   const { addComment, deleteComment } = useComment();
-
-  // const { userData } = useLoginDetails();
-
-  // const likesIncludesUser = challenge.interaction.likes.includes(
-  //   userData.email
-  // );
-  // if (!isLike && likesIncludesUser) {
-  //   setIsLike(true);
-  // }
 
   const getComment = (e) => {
     setComment(e.target.value);
   };
 
+  const triggerPopup = () => {
+    setTrigger(true);
+  };
+
   return (
     <div key={challenge._id} className="challenge-post">
       <FavoriteIcon ChallengeId={challenge._id} />
+
+      <button onClick={triggerPopup}>Delete</button>
+      <Popup isTrigger={trigger} setTrigger={setTrigger}>
+        <DeleteChallenge challengeId={challenge._id} />
+      </Popup>
+
       <h2>{challenge.title}</h2>
       <p>{challenge.publisher}</p>
       <p>{currentDate.toDateString()}</p>
@@ -49,8 +49,8 @@ function ChallengePost({ originalChallenge }) {
       )}
 
       <p>{likeArrayLength} like</p>
-
       <button onClick={() => updateLike(challenge, setChallenge)}>Like</button>
+
       <div>
         <textarea
           value={comment}
