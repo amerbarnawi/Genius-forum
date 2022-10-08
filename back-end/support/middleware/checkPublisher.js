@@ -16,7 +16,7 @@ export async function isPublisher(req, res, next) {
       } else {
         res
           .status(400)
-          .json({ message: "Sorry, you can not edit this challenge!" });
+          .json({ message: "This challenge is not yours, you are not admin!" });
       }
     }
     await dbConnection(readData, "forum");

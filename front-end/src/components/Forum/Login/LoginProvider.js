@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 
 export const LoginContext = createContext();
 
@@ -9,6 +9,16 @@ export function useLoginDetails() {
 export function LoginProvider({ children }) {
   const [userData, setUserData] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  //Session storage
+
+  useEffect(() => {
+    const user = sessionStorage.getItem("userData")
+      ? JSON.parse(sessionStorage.getItem("userData"))
+      : "";
+    setUserData(user);
+    setIsLoggedIn(true);
+  }, []);
 
   return (
     <LoginContext.Provider

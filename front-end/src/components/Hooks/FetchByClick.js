@@ -16,6 +16,7 @@ function useFetchByClick(isClicked, setIsClicked, url, requestOptions) {
           setIsClicked(false);
         }
       } catch (error) {
+        console.log("hon");
         setIsLoading(false);
         setError(`Something went wrong: ${error.message}`);
       }

@@ -21,6 +21,7 @@ function useLoginFetch(email, password) {
       if (response.status === 200) {
         setIsLoggedIn(true);
         setUserData(userData);
+        sessionStorage.setItem("userData", JSON.stringify(userData));
       }
     } catch (error) {
       console.log(error);

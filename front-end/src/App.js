@@ -11,7 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import ChallengeById from "./components/Forum/Main/Challenge/DeliveryPage";
 import UserPage from "./components/Forum/UserPage/UserPage";
 import Favorites from "./components/Forum/Favorites/Favorites";
-// import UserPage from "./components/Forum/UserChallenges/UserPage";
+import SignUp from "./components/Forum/SignUp.js/SignUp";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />}>
               <Route path="/" element={<Welcome />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signUp" element={<SignUp />} />
               <Route path="iq-test" element={<IqTest />} />
               <Route element={<ProtectedRoute />}>
                 <Route path="forum" element={<Forum />} replace>

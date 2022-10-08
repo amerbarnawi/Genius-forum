@@ -1,9 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { useLoginDetails } from "../Forum/Login/LoginProvider";
 
 function Header() {
+  const { setUserData, setIsLoggedIn } = useLoginDetails();
+
   const logOut = () => {
-    window.location.reload(true);
+    setUserData({});
+    setIsLoggedIn(false);
+    // window.location.reload(true);
   };
+
   return (
     <header>
       <h1>My website</h1>

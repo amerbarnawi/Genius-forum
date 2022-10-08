@@ -11,7 +11,7 @@ export async function isUserFound(req, res, next) {
 
       if (registeredUser) {
         res
-          .status(400)
+          .status(200)
           .json({ message: "Sorry, this account is already exist!" });
       } else {
         next();
