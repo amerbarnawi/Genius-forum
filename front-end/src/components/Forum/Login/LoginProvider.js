@@ -17,7 +17,9 @@ export function LoginProvider({ children }) {
       ? JSON.parse(sessionStorage.getItem("userData"))
       : "";
     setUserData(user);
-    setIsLoggedIn(true);
+    if (user) {
+      setIsLoggedIn(true);
+    }
   }, []);
 
   return (

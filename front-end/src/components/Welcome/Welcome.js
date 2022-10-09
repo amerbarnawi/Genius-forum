@@ -1,12 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Banner from "./Banner";
+import ForumInfo from "./ForumInfo";
+import IqInfo from "./IqInfo";
 
 function Welcome() {
   return (
     <main>
-      <h3>Welcome to my application!</h3>
-      <NavLink to="/iq-test">IQ-test</NavLink>
-      <NavLink to="/forum">Forum</NavLink>
+      <Banner />
+      <div>
+        <div className="welcome-right-side">
+          <IqInfo />
+          <ForumInfo />
+        </div>
+      </div>
     </main>
   );
 }

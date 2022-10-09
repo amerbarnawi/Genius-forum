@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useFetchByClick from "../../Hooks/FetchByClick";
 import { Navigate } from "react-router";
+import { useParams } from "react-router-dom";
+import { MdSend } from "react-icons/md";
 
 function SignUp() {
   const [userName, setUserName] = useState("");
@@ -9,6 +11,8 @@ function SignUp() {
   const [logo, setLogo] = useState("love");
   const [isClicked, setIsClicked] = useState(false);
   const [isNavigate, setIsNavigate] = useState(false);
+
+  const { iqScore } = useParams();
 
   const getUserName = (e) => {
     setUserName(e.target.value);
@@ -31,6 +35,7 @@ function SignUp() {
     userName,
     email,
     password,
+    iqScore,
     logo: `https://robohash.org/${logo}`,
   };
   const requestOptions = {
@@ -56,7 +61,7 @@ function SignUp() {
 
   return (
     <div>
-      <div>
+      <div className="sign-up-message">
         <h3>
           {isClicked
             ? isLoading
@@ -69,7 +74,7 @@ function SignUp() {
             : response.message}
         </h3>
       </div>
-      <div>
+      <div className="sign-up-form">
         <input
           type="text"
           value={userName}
@@ -92,7 +97,7 @@ function SignUp() {
           placeholder="Password"
           onChange={getPassword}
         />
-        <div>
+        <div className="user-logo-div">
           <p>Write text to generate a unique image as your logo.</p>
           <img src={`https://robohash.org/${logo}`} alt="User Logo" />
           <input
@@ -105,8 +110,10 @@ function SignUp() {
         </div>
       </div>
 
-      <button onClick={() => createAccount()}>Submit</button>
-      {/* <NavLink to="/login">Login</NavLink> */}
+      <button onClick={() => createAccount()}>
+        Submit
+        <MdSend className="btn-icon" />
+      </button>
 
       {isNavigate ? <Navigate to="/login" /> : ""}
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useLoginDetails } from "../../Login/LoginProvider";
+import { MdSend } from "react-icons/md";
 
 function CreateChallenge() {
   const [isClicked, setIsClicked] = useState(false);
@@ -50,9 +51,12 @@ function CreateChallenge() {
   //   }
 
   return (
-    <div>
-      <div>{error ? <h2>{error}</h2> : message ? <h2>{message}</h2> : ""}</div>
-      <form>
+    <div className="create-update-challenge-div">
+      <h3>Create challenge</h3>
+      <div className="create-challenge-message">
+        {error ? <h2>{error}</h2> : message ? <h2>{message}</h2> : ""}
+      </div>
+      <div className="create-update-challenge-form">
         <input
           type="text"
           value={title}
@@ -73,8 +77,10 @@ function CreateChallenge() {
           placeholder="Image link"
           onChange={getImage}
         />
-      </form>
-      <NavLink onClick={() => create()}>Submit</NavLink>
+      </div>
+      <NavLink onClick={() => create()}>
+        Submit <MdSend />
+      </NavLink>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { MdClose } from "react-icons/md";
 
 function Popup(props) {
   const updateTrigger = () => {
@@ -7,7 +8,9 @@ function Popup(props) {
   return props.isTrigger ? (
     <div>
       <div>
-        <button onClick={() => updateTrigger()}>Close</button>
+        <button onClick={() => updateTrigger()}>
+          <MdClose />
+        </button>
         {props.children}
       </div>
     </div>

@@ -17,7 +17,13 @@ function UserChallenges() {
   const { data, error, isLoading } = useFetchData(url);
 
   return (
-    <div>
+    <div
+      className={
+        id === "my-page"
+          ? "personal-page-challenges"
+          : "home-user-challenge-cards"
+      }
+    >
       {isLoading ? (
         <h2>Loading...</h2>
       ) : error ? (

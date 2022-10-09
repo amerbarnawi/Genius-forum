@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Navigate, NavLink, useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import useLoginFetch from "./loginFetch";
+import { MdSend } from "react-icons/md";
 
 function Login() {
   const location = useLocation();
@@ -36,7 +37,7 @@ function Login() {
           ) : (
             <div>
               <h2>{message}</h2>
-              <form>
+              <div className="login-form">
                 <input
                   type="text"
                   value={email}
@@ -53,12 +54,11 @@ function Login() {
                   required
                   onChange={getPassword}
                 />
-              </form>
+              </div>
               <button type="submit" onClick={() => getUserData()}>
                 Submit
+                <MdSend className="btn-icon" />
               </button>
-
-              <NavLink to="/">Home page</NavLink>
             </div>
           )}
         </div>

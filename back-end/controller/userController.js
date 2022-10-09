@@ -23,7 +23,7 @@ export async function login(req, res) {
 
 // Creating new user:
 export async function createUser(req, res) {
-  const { userName, password, email, logo } = req.body;
+  const { userName, password, email, logo, iqScore } = req.body;
 
   if (!userName || !password || !email) {
     res
@@ -41,6 +41,7 @@ export async function createUser(req, res) {
         logo: logo,
         date: new Date(),
         favorites: [],
+        iqScore: iqScore,
       });
     }
 

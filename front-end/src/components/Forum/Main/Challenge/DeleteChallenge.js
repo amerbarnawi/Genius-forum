@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useFavorites } from "../../Favorites/FavoritesProvider";
 import { useLoginDetails } from "../../Login/LoginProvider";
+import { MdDelete } from "react-icons/md";
 
 function DeleteChallenge({ challengeId }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -18,17 +19,6 @@ function DeleteChallenge({ challengeId }) {
     url,
     requestOptions
   );
-
-  // const { setIsReload } = useReload();
-  // if (data.message) {
-  //   const isValid = data.message.includes("done");
-  //   if (isValid) {
-  //     setTimeout(() => {
-  //       setRefresh(true);
-  //     }, 1000);
-  //     // setIsReload(true);
-  //   }
-  // }
 
   const confirmDeletion = () => {
     setIsClicked(true);
@@ -47,9 +37,10 @@ function DeleteChallenge({ challengeId }) {
         <h2>{data.message}</h2>
       )}
       <p>Click confirm to delete!</p>
-      <div>
-        <button onClick={() => confirmDeletion()}>Delete</button>
-      </div>
+
+      <button onClick={() => confirmDeletion()}>
+        Delete <MdDelete />
+      </button>
     </div>
   );
 }

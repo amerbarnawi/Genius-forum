@@ -6,7 +6,7 @@ function ChallengeCard({ challenge }) {
 
   return (
     <Link to={path}>
-      <div>
+      <div className="challenge-card">
         <h3>{challenge.title}</h3>
         <p>{challenge.date}</p>
         <p>{challenge.publisher}</p>

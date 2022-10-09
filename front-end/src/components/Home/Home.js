@@ -6,7 +6,7 @@ import { ReloadProvider } from "../Forum/Providers/ReloadProvider";
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <ReloadProvider>
         <Header />
         <Outlet />

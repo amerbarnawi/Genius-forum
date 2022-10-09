@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useLoginDetails } from "../../Login/LoginProvider";
+import { MdSend } from "react-icons/md";
 
 function UpdateChallenge({ challenge, setIsUpdate }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -42,8 +43,9 @@ function UpdateChallenge({ challenge, setIsUpdate }) {
   } = useFetchByClick(isClicked, setIsClicked, url, requestOptions);
 
   return (
-    <div>
+    <div className="create-update-challenge-div">
       <button onClick={() => setIsUpdate(false)}>Close</button>
+      <h3>Update challenge</h3>
       <div>{error ? <h2>{error}</h2> : message ? <h2>{message}</h2> : ""}</div>
       <form>
         <input
@@ -67,7 +69,9 @@ function UpdateChallenge({ challenge, setIsUpdate }) {
           onChange={getImage}
         />
       </form>
-      <NavLink onClick={() => create()}>Submit</NavLink>
+      <NavLink onClick={() => create()}>
+        Submit <MdSend />
+      </NavLink>
     </div>
   );
 }

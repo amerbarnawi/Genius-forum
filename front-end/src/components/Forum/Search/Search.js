@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useFetchData from "../../Hooks/FetchHook";
 import ChallengeCard from "../UserChallenges/ChallengeCard";
 import { useLoginDetails } from "../Login/LoginProvider";
+import { MdSearch } from "react-icons/md";
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
@@ -20,18 +21,20 @@ function Search() {
 
   return (
     <>
-      <div>
-        <form>
+      <div className="search-container">
+        <div className="search-form">
           <input
             type="text"
             name="searchValue"
             placeholder="Challenge title"
             onBlur={getSearchValue}
           />
-          <button onClick={StopDefaultSubmit}>Search</button>
-        </form>
+          <button onClick={StopDefaultSubmit}>
+            <MdSearch /> Search
+          </button>
+        </div>
       </div>
-      <div>
+      <div className="search-result">
         {isLoading ? (
           <h2>Loading...</h2>
         ) : error ? (
@@ -39,9 +42,11 @@ function Search() {
         ) : data.message ? (
           <h2>{data.message}</h2>
         ) : (
-          data.map((challenge, index) => (
-            <ChallengeCard key={challenge._id} challenge={challenge} />
-          ))
+          <div className="search-result-cards">
+            {data.map((challenge) => (
+              <ChallengeCard key={challenge._id} challenge={challenge} />
+            ))}
+          </div>
         )}
       </div>
     </>
