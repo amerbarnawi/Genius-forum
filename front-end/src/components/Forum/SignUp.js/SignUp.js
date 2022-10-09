@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFetchByClick from "../../Hooks/FetchByClick";
+import { Navigate } from "react-router";
 
 function SignUp() {
   const [userName, setUserName] = useState("");
@@ -7,6 +8,7 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [logo, setLogo] = useState("love");
   const [isClicked, setIsClicked] = useState(false);
+  const [isNavigate, setIsNavigate] = useState(false);
 
   const getUserName = (e) => {
     setUserName(e.target.value);
@@ -43,6 +45,14 @@ function SignUp() {
     error,
     isLoading,
   } = useFetchByClick(isClicked, setIsClicked, url, requestOptions);
+
+  useEffect(() => {
+    if (!isLoading && !error && response.message.includes("done")) {
+      setTimeout(() => {
+        setIsNavigate(true);
+      }, 3000);
+    }
+  }, [isLoading, error, response.message]);
 
   return (
     <div>
@@ -96,6 +106,9 @@ function SignUp() {
       </div>
 
       <button onClick={() => createAccount()}>Submit</button>
+      {/* <NavLink to="/login">Login</NavLink> */}
+
+      {isNavigate ? <Navigate to="/login" /> : ""}
     </div>
   );
 }

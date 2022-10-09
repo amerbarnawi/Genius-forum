@@ -88,7 +88,7 @@ export async function findChallengeById(req, res) {
 
 // Updating challenge function:
 export async function updateChallenge(req, res) {
-  const { title, body } = req.body;
+  const { title, body, image } = req.body;
   const id = req.params.id;
 
   if (!title || !body) {

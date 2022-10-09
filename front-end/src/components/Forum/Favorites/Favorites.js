@@ -17,7 +17,9 @@ function Favorites() {
         <h2>Loading...</h2>
       ) : error ? (
         <h2>{error}</h2>
-      ) : favoritesIds.length > 0 ? (
+      ) : allChallenges.filter((challenge) =>
+          favoritesIds.includes(challenge._id)
+        ).length > 0 ? (
         allChallenges
           .filter((challenge) => favoritesIds.includes(challenge._id))
           .map((challenge, index) => (

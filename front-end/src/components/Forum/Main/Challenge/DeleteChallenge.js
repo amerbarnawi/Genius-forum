@@ -19,6 +19,17 @@ function DeleteChallenge({ challengeId }) {
     requestOptions
   );
 
+  // const { setIsReload } = useReload();
+  // if (data.message) {
+  //   const isValid = data.message.includes("done");
+  //   if (isValid) {
+  //     setTimeout(() => {
+  //       setRefresh(true);
+  //     }, 1000);
+  //     // setIsReload(true);
+  //   }
+  // }
+
   const confirmDeletion = () => {
     setIsClicked(true);
     updateFavorite();

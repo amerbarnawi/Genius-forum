@@ -15,6 +15,8 @@ function Header() {
       <h1>My website</h1>
       <NavLink to="/">Home page</NavLink>
       <NavLink onClick={() => logOut()}>Log out</NavLink>
+      <NavLink to="/iq-test">IQ-test</NavLink>
+      <NavLink to="/forum">Forum</NavLink>
       <hr />
     </header>
   );

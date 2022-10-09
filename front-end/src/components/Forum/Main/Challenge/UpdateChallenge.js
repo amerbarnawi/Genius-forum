@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useLoginDetails } from "../../Login/LoginProvider";
 
-function CreateChallenge() {
+function UpdateChallenge({ challenge, setIsUpdate }) {
   const [isClicked, setIsClicked] = useState(false);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [image, setImage] = useState("");
+  const [title, setTitle] = useState(challenge.title);
+  const [body, setBody] = useState(challenge.body);
+  const [image, setImage] = useState(challenge.image);
 
   const getTitle = (e) => {
     setTitle(e.target.value);
@@ -30,27 +30,20 @@ function CreateChallenge() {
     image,
   };
   const requestOptions = {
-    method: "POST",
+    method: "PUT",
     headers: { "Content-type": "application/json; charset=utf-8" },
     body: JSON.stringify(newChallenge),
   };
 
-  const url = `http://localhost:5000/api/forum/challenge/create?email=${userData.email}&password=${userData.password}`;
+  const url = `http://localhost:5000/api/forum/challenge/update/${challenge._id}?email=${userData.email}&password=${userData.password}`;
   const {
     data: { message },
     error,
   } = useFetchByClick(isClicked, setIsClicked, url, requestOptions);
 
-  //   const { setIsReload } = useReload();
-  //   if (message) {
-  //     const isValid = message.includes("done");
-  //     if (isValid) {
-  //       setIsReload(true);
-  //     }
-  //   }
-
   return (
     <div>
+      <button onClick={() => setIsUpdate(false)}>Close</button>
       <div>{error ? <h2>{error}</h2> : message ? <h2>{message}</h2> : ""}</div>
       <form>
         <input
@@ -79,4 +72,4 @@ function CreateChallenge() {
   );
 }
 
-export default CreateChallenge;
+export default UpdateChallenge;
