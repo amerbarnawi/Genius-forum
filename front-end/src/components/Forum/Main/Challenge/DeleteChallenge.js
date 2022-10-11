@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useFavorites } from "../../Favorites/FavoritesProvider";
 import { useLoginDetails } from "../../Login/LoginProvider";
 import { MdDelete } from "react-icons/md";
 
-function DeleteChallenge({ challengeId }) {
+function DeleteChallenge({ challengeId, setIsChallengeHidden }) {
   const [isClicked, setIsClicked] = useState(false);
   const { userData } = useLoginDetails();
   const { updateFavorite } = useFavorites();
@@ -20,26 +20,36 @@ function DeleteChallenge({ challengeId }) {
     requestOptions
   );
 
+  useEffect(() => {
+    if (data && !isLoading) {
+      if (data.message.includes("done")) {
+        setTimeout(() => {
+          setIsChallengeHidden(true);
+        }, 3000);
+      }
+    }
+  }, [data, setIsChallengeHidden, isLoading]);
+
   const confirmDeletion = () => {
     setIsClicked(true);
     updateFavorite();
   };
 
   return (
-    <div>
+    <div className="delete-challenge-container">
       <h2>Delete challenge</h2>
 
       {isLoading ? (
-        <h2>Loading...</h2>
+        <h3>Loading...</h3>
       ) : error ? (
-        <h2>{error}</h2>
+        <h3>{error}</h3>
       ) : (
-        <h2>{data.message}</h2>
+        <h3>{data.message}</h3>
       )}
       <p>Click confirm to delete!</p>
 
       <button onClick={() => confirmDeletion()}>
-        Delete <MdDelete />
+        Delete <MdDelete className="icon" />
       </button>
     </div>
   );

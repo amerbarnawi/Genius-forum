@@ -8,6 +8,7 @@ function Header() {
   const logOut = () => {
     setUserData({});
     setIsLoggedIn(false);
+    sessionStorage.clear();
     // window.location.reload(true);
   };
 
@@ -15,33 +16,39 @@ function Header() {
     <header>
       <div className="app-logo">
         <img src="" alt="website-logo" />
-      </div>
-      <div className="app-title">
-        <h1>Genius Forum</h1>
+        <div className="app-title">
+          <h1>Genius Forum</h1>
+        </div>
       </div>
 
       <div className="header-navbar">
-        <div className="main-buttons">
-          <div>
-            <MdHome />
-            <NavLink to="/">Home page</NavLink>
-          </div>
-          <div>
-            <MdSchool />
-            <NavLink to="/iq-test">IQ-test</NavLink>
-          </div>
-          <div>
-            <MdForum />
-            <NavLink to="/forum">Forum</NavLink>
-          </div>
-        </div>
-        <div>
+        <div className="log-out navbar-button">
           <MdLogout />
-          <NavLink onClick={() => logOut()}>Log out</NavLink>
+          <NavLink onClick={() => logOut()} className="button-title">
+            Log out
+          </NavLink>
+        </div>
+        <div className="main-buttons">
+          <div className="navbar-button">
+            <MdHome />
+            <NavLink to="/" className="button-title">
+              Home page
+            </NavLink>
+          </div>
+          <div className="navbar-button">
+            <MdSchool />
+            <NavLink to="/iq-test" className="button-title">
+              IQ-test
+            </NavLink>
+          </div>
+          <div className="navbar-button">
+            <MdForum />
+            <NavLink to="/forum" className="button-title">
+              Forum
+            </NavLink>
+          </div>
         </div>
       </div>
-
-      <hr />
     </header>
   );
 }

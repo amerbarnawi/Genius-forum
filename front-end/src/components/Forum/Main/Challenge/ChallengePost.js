@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import FavoriteIcon from "../../Favorites/FavoriteIcon";
 import Popup from "../../Support/Popup";
 import { useComment } from "./CommentProvider";
 import DeleteChallenge from "./DeleteChallenge";
@@ -14,17 +13,12 @@ function ChallengePost({ originalChallenge }) {
   const [trigger, setTrigger] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
   const [isComments, setIsComments] = useState(false);
-  // const [refresh, setRefresh] = useState(false);
-
-  // if (refresh) {
-  //   setRefresh(false);
-  // }
+  const [isChallengeHidden, setIsChallengeHidden] = useState(false);
 
   useEffect(() => {
     setChallenge(originalChallenge);
   }, [originalChallenge]);
 
-  // const currentDate = new Date(challenge.date);
   const likeArrayLength = challenge.interaction.likes.length;
   const commentArrayLength = challenge.interaction.comments.length;
 
@@ -57,31 +51,17 @@ function ChallengePost({ originalChallenge }) {
       {isUpdate ? (
         <UpdateChallenge challenge={challenge} setIsUpdate={setIsUpdate} />
       ) : (
-        <div className="challenge-post">
-          <FavoriteIcon ChallengeId={challenge._id} className="favorite-icon" />
-
+        <div
+          className={isChallengeHidden ? "challenge-hidden" : "challenge-post"}
+        >
           <Popup isTrigger={trigger} setTrigger={setTrigger}>
-            <DeleteChallenge challengeId={challenge._id} />
+            <DeleteChallenge
+              challengeId={challenge._id}
+              setIsChallengeHidden={setIsChallengeHidden}
+            />
           </Popup>
 
           <ChallengeContent challenge={challenge} />
-
-          {/* <div className="post-banner">
-            <h2>{challenge.title}</h2>
-            <p>By:{challenge.publisher}</p>
-            <p>{currentDate.toDateString()}</p>
-          </div>
-
-          <p>{challenge.body}</p>
-          {challenge.image !== "" ? (
-            <img
-              src={`${challenge.image}`}
-              alt={challenge.title}
-              className="challenge-image"
-            />
-          ) : (
-            ""
-          )} */}
 
           <div className="interaction-area">
             <p>
@@ -93,17 +73,17 @@ function ChallengePost({ originalChallenge }) {
           <div className="post-navbar">
             <button onClick={() => updateLike(challenge, setChallenge)}>
               Like
-              <MdThumbUp />
+              <MdThumbUp className="icon" />
             </button>
             <button onClick={() => changeCommentsAreaVisibility()}>
               Comment
-              <MdComment />
+              <MdComment className="icon" />
             </button>
             <button onClick={() => updateChallenge()}>
-              Update <MdEdit />
+              Update <MdEdit className="icon" />
             </button>
             <button onClick={triggerPopup}>
-              Delete <MdDelete />
+              Delete <MdDelete className="icon" />
             </button>
           </div>
 
@@ -111,7 +91,7 @@ function ChallengePost({ originalChallenge }) {
             ""
           ) : (
             <div className="comments-area">
-              <div>
+              <div className="comment-form">
                 <textarea
                   value={comment}
                   name="comment"
@@ -124,25 +104,33 @@ function ChallengePost({ originalChallenge }) {
                   Submit <MdSend />
                 </button>
               </div>
-              <div>
+              <div className="comments-container">
                 {commentArrayLength > 0
                   ? challenge.interaction.comments.map((comment, index) => {
                       return (
-                        <div key={index} id={comment.commentId}>
-                          <h3>{comment.user}</h3>
-                          <p>{comment.text}</p>
-                          <button
-                            onClick={() =>
-                              deleteComment(
-                                challenge,
-                                setChallenge,
-                                comment.id,
-                                comment
-                              )
-                            }
-                          >
-                            <MdDelete />
-                          </button>
+                        <div
+                          key={index}
+                          id={comment.commentId}
+                          className="comment"
+                        >
+                          <div>
+                            <h3>{comment.user}</h3>
+                            <p>{comment.text}</p>
+                          </div>
+                          <div>
+                            <button
+                              onClick={() =>
+                                deleteComment(
+                                  challenge,
+                                  setChallenge,
+                                  comment.id,
+                                  comment
+                                )
+                              }
+                            >
+                              <MdDelete className="delete-comment-icon" />
+                            </button>
+                          </div>
                         </div>
                       );
                     })

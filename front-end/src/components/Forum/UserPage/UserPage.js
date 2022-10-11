@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Favorites from "../Favorites/Favorites";
 import CreateChallenge from "../Main/Challenge/CreateChallenge";
 import Popup from "../Support/Popup";
 import UserChallenges from "../UserChallenges/UserChallenges";
@@ -9,24 +10,31 @@ function UserPage() {
   const triggerPopup = () => {
     setTrigger(true);
   };
-  // const { isReload } = useReload();
-  // if (isReload) {
-  //   setTimeout(() => {
-  //     window.location.reload(true);
-  //   }, 2000);
-  // }
 
   return (
-    <div className="forum-page-columns">
+    <div className="forum-user-page-columns">
       {/* <div className="search-side">one</div> */}
       <div className="user-page-main">
-        <input type="text" placeholder="Challenge us!" onClick={triggerPopup} />
+        <textarea
+          name="new-post"
+          placeholder="Challenge us!"
+          onClick={triggerPopup}
+          className="input-create-challenge"
+        ></textarea>
+
         <Popup isTrigger={trigger} setTrigger={setTrigger}>
           <CreateChallenge />
         </Popup>
         <UserChallenges />
       </div>
-      <div className="search-side">three</div>
+      <div className="user-page-right-side">
+        <div className="title">
+          <h2>My favorites</h2>
+        </div>
+        <div className="favorites">
+          <Favorites />
+        </div>
+      </div>
     </div>
   );
 }

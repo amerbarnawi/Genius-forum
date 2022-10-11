@@ -17,29 +17,33 @@ function UserChallenges() {
   const { data, error, isLoading } = useFetchData(url);
 
   return (
-    <div
-      className={
-        id === "my-page"
-          ? "personal-page-challenges"
-          : "home-user-challenge-cards"
-      }
-    >
-      {isLoading ? (
-        <h2>Loading...</h2>
-      ) : error ? (
-        <h2>{error}</h2>
-      ) : (
-        data
-          .filter((challenge) => challenge.publisher === email)
-          .map((challenge, index) => {
-            return id === "my-page" ? (
-              <ChallengePost key={index} originalChallenge={challenge} />
-            ) : (
-              <ChallengeCard key={index} challenge={challenge} />
-            );
-          })
-      )}
-    </div>
+    <>
+      <h2>My challenges</h2>
+
+      <div
+        className={
+          id === "my-page"
+            ? "personal-page-challenges"
+            : "home-user-challenge-cards"
+        }
+      >
+        {isLoading ? (
+          <h2>Loading...</h2>
+        ) : error ? (
+          <h2>{error}</h2>
+        ) : (
+          data
+            .filter((challenge) => challenge.publisher === email)
+            .map((challenge, index) => {
+              return id === "my-page" ? (
+                <ChallengePost key={index} originalChallenge={challenge} />
+              ) : (
+                <ChallengeCard key={index} challenge={challenge} />
+              );
+            })
+        )}
+      </div>
+    </>
   );
 }
 

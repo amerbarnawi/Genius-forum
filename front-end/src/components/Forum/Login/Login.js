@@ -22,7 +22,7 @@ function Login() {
   };
 
   if (isLoading) {
-    return <h2>Loading ..</h2>;
+    return <h2 className="login-loading">Loading ..</h2>;
   }
 
   return (
@@ -30,13 +30,13 @@ function Login() {
       {isLoggedIn ? (
         <Navigate to="/forum" state={{ from: location }} replace />
       ) : (
-        <div>
+        <div className="login-container">
           <h1>Log in</h1>
           {error ? (
-            <h2>{error}</h2>
+            <h3>{error}</h3>
           ) : (
             <div>
-              <h2>{message}</h2>
+              <h3>{message}</h3>
               <div className="login-form">
                 <input
                   type="text"

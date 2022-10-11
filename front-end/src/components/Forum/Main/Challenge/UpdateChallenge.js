@@ -45,21 +45,23 @@ function UpdateChallenge({ challenge, setIsUpdate }) {
   return (
     <div className="create-update-challenge-div">
       <button onClick={() => setIsUpdate(false)}>Close</button>
-      <h3>Update challenge</h3>
-      <div>{error ? <h2>{error}</h2> : message ? <h2>{message}</h2> : ""}</div>
-      <form>
+      <h2>Update challenge</h2>
+      <div>{error ? <h3>{error}</h3> : message ? <h3>{message}</h3> : ""}</div>
+      <div className="update-form">
         <input
           type="text"
           value={title}
           name="title"
           placeholder="Challenge title"
           onChange={getTitle}
+          className="update-title"
         />
         <textarea
           value={body}
           name="body"
           placeholder="The challenge .."
           onChange={getBody}
+          className="update-body"
         ></textarea>
         <input
           type="text"
@@ -67,8 +69,9 @@ function UpdateChallenge({ challenge, setIsUpdate }) {
           name="image"
           placeholder="Image link"
           onChange={getImage}
+          className="update-image"
         />
-      </form>
+      </div>
       <NavLink onClick={() => create()}>
         Submit <MdSend />
       </NavLink>

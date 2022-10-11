@@ -25,9 +25,13 @@ function IqTest() {
 
   return (
     <main className="iq-test-container">
-      <h1>Welcome to the IQ test.</h1>
+      <h2>Welcome to the IQ test.</h2>
       <div className="iq-banner">
-        {isTrue ? <MdLockOpen /> : <MdLockOutline />}
+        {isTrue ? (
+          <MdLockOpen className="open-icon" />
+        ) : (
+          <MdLockOutline className="close-icon" />
+        )}
         <h3>
           {isTrue === undefined
             ? ""
@@ -42,30 +46,29 @@ function IqTest() {
           <div className="iq-pass-message">
             <p>You can sign up as a user in the forum.</p>
             <p>{`Your random score is : ( ${randomScore} / 100 )`}</p>
-            <NavLink to={path}>
+            <NavLink to={path} className="sign-up-button">
               Sign up <MdAdsClick />
             </NavLink>
           </div>
         )}
       </div>
 
-      <div>
+      <div className="question-and-answers">
         <div className="iq-question-div">
+          <h3>Which is the missing square?</h3>
           <img src={iq_question} alt="IQ question." />
         </div>
+
         <div className="iq-answers">
-          <h2>Which is the missing square?</h2>
-          <div>
-            {answers.map((answer, index) => (
-              <div key={index}>
-                <img
-                  src={answer}
-                  alt="Answer of IQ question."
-                  onClick={() => checkAnswer(index)}
-                />
-              </div>
-            ))}
-          </div>
+          {answers.map((answer, index) => (
+            <div key={index} className="image-container">
+              <img
+                src={answer}
+                alt="Answer of IQ question."
+                onClick={() => checkAnswer(index)}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </main>

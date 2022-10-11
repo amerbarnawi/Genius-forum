@@ -6,9 +6,9 @@ function Popup(props) {
     props.setTrigger(false);
   };
   return props.isTrigger ? (
-    <div>
-      <div>
-        <button onClick={() => updateTrigger()}>
+    <div className="popup-external">
+      <div className="popup-internal">
+        <button onClick={() => updateTrigger()} className="close-button">
           <MdClose />
         </button>
         {props.children}

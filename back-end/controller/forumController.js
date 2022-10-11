@@ -5,7 +5,7 @@ import { v4 as uuid } from "uuid";
 
 // Creating challenge function:
 export async function createChallenge(req, res) {
-  const { title, body, image } = req.body;
+  const { title, body, image, userLogo, userName } = req.body;
   const { email } = req.query;
 
   if (!title || !body) {
@@ -23,6 +23,8 @@ export async function createChallenge(req, res) {
         image: image,
         publisher: email,
         date: new Date(),
+        userLogo,
+        userName,
         interaction: {
           likes: [],
           comments: [],

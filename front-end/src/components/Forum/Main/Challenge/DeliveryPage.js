@@ -19,6 +19,8 @@ function ChallengeById() {
         <h2>Loading...</h2>
       ) : error ? (
         <h2>{error}</h2>
+      ) : data.message ? (
+        <h3>{data.message}</h3>
       ) : (
         <ChallengePost originalChallenge={data} />
       )}

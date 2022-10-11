@@ -22,32 +22,34 @@ function Search() {
   return (
     <>
       <div className="search-container">
-        <div className="search-form">
-          <input
-            type="text"
-            name="searchValue"
-            placeholder="Challenge title"
-            onBlur={getSearchValue}
-          />
-          <button onClick={StopDefaultSubmit}>
-            <MdSearch /> Search
-          </button>
-        </div>
+        <h2>Search</h2>
+        <input
+          type="text"
+          name="searchValue"
+          placeholder="Challenge title"
+          onBlur={getSearchValue}
+        />
+        <button onClick={StopDefaultSubmit}>
+          <MdSearch /> Search
+        </button>
       </div>
-      <div className="search-result">
-        {isLoading ? (
-          <h2>Loading...</h2>
-        ) : error ? (
-          <h2>{error}</h2>
-        ) : data.message ? (
-          <h2>{data.message}</h2>
-        ) : (
-          <div className="search-result-cards">
-            {data.map((challenge) => (
-              <ChallengeCard key={challenge._id} challenge={challenge} />
-            ))}
-          </div>
-        )}
+      <div className="search-results-container">
+        <div className="search-form"></div>
+        <div className="search-result">
+          {isLoading ? (
+            <h2>Loading...</h2>
+          ) : error ? (
+            <h2>{error}</h2>
+          ) : data.message ? (
+            <h2>{data.message}</h2>
+          ) : (
+            <div className="search-result-cards">
+              {data.map((challenge) => (
+                <ChallengeCard key={challenge._id} challenge={challenge} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

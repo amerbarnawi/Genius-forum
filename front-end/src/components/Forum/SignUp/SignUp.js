@@ -8,7 +8,7 @@ function SignUp() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [logo, setLogo] = useState("love");
+  const [logo, setLogo] = useState("");
   const [isClicked, setIsClicked] = useState(false);
   const [isNavigate, setIsNavigate] = useState(false);
 
@@ -99,7 +99,10 @@ function SignUp() {
         />
         <div className="user-logo-div">
           <p>Write text to generate a unique image as your logo.</p>
-          <img src={`https://robohash.org/${logo}`} alt="User Logo" />
+          <img
+            src={`https://robohash.org/${logo ? logo : "love"}`}
+            alt="User Logo"
+          />
           <input
             type="text"
             value={logo}
@@ -108,12 +111,11 @@ function SignUp() {
             onChange={getLogo}
           />
         </div>
+        <button onClick={() => createAccount()}>
+          Submit
+          <MdSend className="btn-icon" />
+        </button>
       </div>
-
-      <button onClick={() => createAccount()}>
-        Submit
-        <MdSend className="btn-icon" />
-      </button>
 
       {isNavigate ? <Navigate to="/login" /> : ""}
     </div>

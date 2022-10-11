@@ -22,12 +22,10 @@ function Forum() {
             ) : (
               <div className="forum-page-columns">
                 <div className="search-side">
-                  <h1>Search</h1>
                   <Search />
                 </div>
                 <div className="main">{id ? <Outlet /> : <Main />}</div>
-                <div className="all-challenges-side">
-                  <h1>My challenges</h1>
+                <div className="user-challenges-side">
                   <UserChallenges />
                 </div>
               </div>

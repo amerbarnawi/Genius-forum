@@ -4,7 +4,7 @@ import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useLoginDetails } from "../../Login/LoginProvider";
 import { MdSend } from "react-icons/md";
 
-function CreateChallenge() {
+function CreateChallenge(props) {
   const [isClicked, setIsClicked] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -29,6 +29,8 @@ function CreateChallenge() {
     title,
     body,
     image,
+    userLogo: userData.logo,
+    userName: userData.userName,
   };
   const requestOptions = {
     method: "POST",
@@ -42,33 +44,28 @@ function CreateChallenge() {
     error,
   } = useFetchByClick(isClicked, setIsClicked, url, requestOptions);
 
-  //   const { setIsReload } = useReload();
-  //   if (message) {
-  //     const isValid = message.includes("done");
-  //     if (isValid) {
-  //       setIsReload(true);
-  //     }
-  //   }
-
   return (
     <div className="create-update-challenge-div">
-      <h3>Create challenge</h3>
+      <button onClick={() => props.setIsCreate(false)}>Close</button>
+      <h2>Create challenge</h2>
       <div className="create-challenge-message">
         {error ? <h2>{error}</h2> : message ? <h2>{message}</h2> : ""}
       </div>
-      <div className="create-update-challenge-form">
+      <div className="update-form">
         <input
           type="text"
           value={title}
           name="title"
           placeholder="Challenge title"
           onChange={getTitle}
+          className="update-title"
         />
         <textarea
           value={body}
           name="body"
           placeholder="The challenge .."
           onChange={getBody}
+          className="update-body"
         ></textarea>
         <input
           type="text"
@@ -76,6 +73,7 @@ function CreateChallenge() {
           name="image"
           placeholder="Image link"
           onChange={getImage}
+          className="update-image"
         />
       </div>
       <NavLink onClick={() => create()}>
