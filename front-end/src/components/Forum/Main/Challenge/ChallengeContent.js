@@ -12,7 +12,7 @@ function ChallengeContent({ challenge }) {
             <img src={challenge.userLogo} alt="user-logo" />
           </div>
           <div className="post-info">
-            <h2>{challenge.title}</h2>
+            <h2 className="post-title">{challenge.title}</h2>
             <p>By:{challenge.userName ? challenge.userName : "Admin"}</p>
             <p>{currentDate.toDateString()}</p>
           </div>

@@ -10,7 +10,6 @@ function Header() {
     setUserData({});
     setIsLoggedIn(false);
     sessionStorage.clear();
-    // window.location.reload(true);
   };
 
   return (

@@ -1,6 +1,4 @@
 import React from "react";
-// import heartRegular from "../../../assets/heart-regular.svg";
-// import heartSolid from "../../../assets/heart-solid.svg";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 import { useFavorites } from "./FavoritesProvider";

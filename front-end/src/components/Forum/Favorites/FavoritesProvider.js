@@ -9,7 +9,6 @@ export function useFavorites() {
 
 export function FavoritesProvider({ children }) {
   const [favoritesIds, setFavoritesArray] = useState([]);
-  //   const [ChallengeId, setChallengeId] = useState("");
 
   const { userData } = useLoginDetails();
 

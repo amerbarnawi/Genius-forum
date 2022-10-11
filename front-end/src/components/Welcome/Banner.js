@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { MdForum, MdSchool } from "react-icons/md";
 import bannerImage from "../../assets/welcome-page/einstein.jpeg";
-// import back from "../../assets/background.jpeg";
 
 function Banner() {
   return (

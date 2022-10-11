@@ -8,6 +8,10 @@
 
 ![Forum page](/front-end/src/assets/forum-page.png)
 
+## Challenge (Post)
+
+![Forum page](/front-end/src/assets/challenge-post.png)
+
 ## Full-stack application
 
 The project consist of front-end and back-end.

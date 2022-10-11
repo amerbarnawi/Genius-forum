@@ -8,7 +8,6 @@ function UserPage() {
 
   return (
     <div className="forum-user-page-columns">
-      {/* <div className="search-side">one</div> */}
       <div className="user-page-main">
         <textarea
           name="new-post"
