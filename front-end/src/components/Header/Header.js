@@ -33,7 +33,7 @@ function Header() {
           <div className="navbar-button">
             <MdHome className="icon" />
             <NavLink to="/" className="button-title">
-              Home page
+              Home
             </NavLink>
           </div>
           <div className="navbar-button">

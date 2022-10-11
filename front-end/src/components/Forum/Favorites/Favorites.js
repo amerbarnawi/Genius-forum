@@ -16,7 +16,7 @@ function Favorites() {
   const { data: allChallenges, error, isLoading } = useFetchData(url);
 
   return (
-    <div>
+    <div className="favorites-page">
       {isLoading ? (
         <h2>Loading...</h2>
       ) : error ? (

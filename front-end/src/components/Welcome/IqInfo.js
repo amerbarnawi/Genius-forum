@@ -10,7 +10,7 @@ function IqInfo() {
         <img src={iqTest} alt="brain" />
       </div>
 
-      <div>
+      <div className="iq-info-text">
         <h2>Intelligence quotient (IQ)</h2>
         <p>
           Is a total score derived from a set of standardized tests or subtests
