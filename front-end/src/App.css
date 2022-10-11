@@ -6,6 +6,12 @@
 
 .App {
   text-align: center;
+  background-color: black;
+  /* background-image: linear-gradient(
+    to right,
+    rgb(172, 7, 90),
+    rgb(123, 3, 163)
+  ); */
 }
 
 .home {
@@ -16,11 +22,14 @@
 /* =============================================== */
 
 header {
-  background-color: green;
   width: 100%;
+  height: 80px;
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
+  background-color: black;
+  color: white;
+  border-bottom: 1px solid #53536a;
 }
 
 .header-navbar {
@@ -37,9 +46,23 @@ header .main-buttons {
 
 header .log-out {
   margin-right: 40px;
+  margin-top: 25px;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid white;
+  height: 40px;
+  padding: 15px;
+}
+
+header .log-out:hover {
+  background-color: rgb(229, 11, 69);
+  border: none;
+  cursor: pointer;
 }
 
 header .app-title {
+  margin-left: 20px;
+  color: rgb(229, 11, 69);
 }
 
 header .navbar-button {
@@ -50,8 +73,24 @@ header .navbar-button {
   margin-left: 30px;
 }
 
+header .navbar-button:hover {
+  color: yellow;
+}
+
+header .navbar-button .icon {
+  width: 25px;
+  height: auto;
+}
+
 header .button-title {
   margin-left: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+header .button-title:hover {
+  color: yellow;
 }
 
 header .app-logo {
@@ -60,11 +99,19 @@ header .app-logo {
   margin-left: 20px;
 }
 
+header img {
+  margin-bottom: 10px;
+}
+
 /* Footer */
 /* =============================================== */
 
 footer {
   margin-top: 80px;
+  border-top: 1px solid #53536a;
+  padding: 50px;
+  color: white;
+  background-color: black;
 }
 
 footer h3 {
@@ -72,41 +119,73 @@ footer h3 {
 }
 
 footer h3 span {
-  font-size: 12px;
+  color: yellow;
+  font-family: cursive;
 }
 
 /* Welcome page */
 /* =============================================== */
 
 .banner {
-  background-color: rgb(83, 83, 157);
+  background-color: rgb(23, 23, 69);
   display: flex;
   justify-content: space-between;
   position: relative;
+  height: max-content;
 }
 .banner-info {
   display: flex;
   flex-direction: column;
 }
 
-.banner-image {
-}
-
 .banner-image img {
-  width: 800px;
+  width: 100%;
+  opacity: 0.6;
 }
 
 .about-us {
-  background-color: yellow;
-  width: 70%;
-  margin: 200px auto;
+  border: 1px solid rgb(220, 11, 66);
+  border-radius: 10px;
+  padding: 50px;
+  background-color: #3d3d4e;
+  width: 80%;
+  margin: 100px auto;
   justify-content: space-between;
   text-align: justify;
+  color: white;
+  font-size: 20px;
 }
+
+.about-us h3 {
+  color: yellow;
+}
+
 .banner .links {
-  margin-top: 20px;
-  background-color: red;
+  margin-top: 50px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.banner-link,
+.iq-info-button,
+.forum-info-button {
+  text-decoration: none;
+  color: white;
+  margin-left: 40px;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.banner-link .icon {
+  margin-left: 10px;
+}
+
+.banner-link:hover,
+.iq-info-button:hover,
+.forum-info-button:hover {
+  background-color: rgb(220, 11, 66);
 }
 
 /* IQ-Info */
@@ -117,6 +196,11 @@ footer h3 span {
   justify-content: center;
   padding: 20px;
   width: 80%;
+  color: white;
+  line-height: 25px;
+  background-color: #3d3d4e;
+  border: 1px solid #53536a;
+  border-radius: 8px;
 }
 
 .iq-info img {
@@ -126,7 +210,8 @@ footer h3 span {
 .iq-info h2 {
   text-align: left;
   margin-left: 40px;
-  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: yellow;
 }
 
 .iq-info p {
@@ -135,27 +220,33 @@ footer h3 span {
   margin-bottom: 50px;
 }
 
+.iq-info-button .icon {
+  margin-left: 10px;
+}
+
+/* Forum info */
 .forum-info {
+  width: 80%;
   margin: 30px;
-  margin-top: 60px;
+  margin: 60px auto;
   display: flex;
   justify-content: center;
   padding: 20px;
-}
-
-.forum-info {
-  width: 80%;
-  background-color: gray;
-  margin: 50px auto;
+  color: white;
+  line-height: 25px;
+  background-color: #3d3d4e;
+  border: 1px solid #53536a;
+  border-radius: 8px;
 }
 
 .forum-info img {
-  width: 400px;
+  width: 350px;
 }
 
 .forum-info h2 {
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: yellow;
 }
 
 .forum-info p {
@@ -165,15 +256,19 @@ footer h3 span {
   margin-bottom: 50px;
 }
 
+.forum-info-button .icon {
+  margin-left: 10px;
+}
+
 /* =============================================== */
 /* Forum Page */
 /* =============================================== */
 
 .forum-page {
   width: 90%;
-  background-color: gray;
   margin: 30px auto;
   padding: 20px;
+  background-color: black;
 }
 
 .forum-page-columns {
@@ -184,12 +279,14 @@ footer h3 span {
 
 .main {
   width: 50%;
-  background-color: white;
+  border: 1px solid rgb(74, 74, 74);
+  background-color: rgb(58, 57, 57);
+  border-radius: 20px;
 }
 
 .user-challenges-side {
   justify-self: start;
-  background-color: yellow;
+  color: white;
 }
 
 /* Forum banner */
@@ -197,29 +294,35 @@ footer h3 span {
 
 .forum-banner {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  background-color: rgb(58, 57, 57);
+  padding: 10px;
+  border: 1px solid rgb(100, 99, 99);
+  border-radius: 10px;
 }
 
 .user-icon {
   width: 80px;
   box-sizing: border-box;
+  color: white;
+  margin-right: 30px;
 }
 
 .user-icon img {
   width: 80px;
   border-radius: 50%;
-  border: 1px solid red;
+  border: 1px solid rgb(131, 128, 128);
   background-color: white;
   margin-bottom: 10px;
 }
 
 .banner-navbar {
-  background-color: red;
   display: flex;
   height: fit-content;
   padding: 10px;
   margin-right: 100px;
   margin-top: 20px;
+  color: white;
 }
 
 .forum-banner .banner-button {
@@ -230,8 +333,24 @@ footer h3 span {
   margin-left: 30px;
 }
 
+.banner-button:hover {
+  color: yellow;
+}
+
+.forum-banner-link {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.forum-banner-link:hover {
+  color: yellow;
+}
+
 .forum-banner .banner-button .icon {
   margin-bottom: 5px;
+  width: 30px;
+  height: auto;
 }
 
 /* Forum => Main => user challenges  & search & main */
@@ -240,11 +359,15 @@ footer h3 span {
 .home-user-challenge-cards,
 .search-results-container {
   padding: 10px;
-  background-color: green;
-  height: 620px;
+  background-color: black;
+  height: 550px;
   overflow: scroll;
   padding-top: 0px;
   width: 100%;
+}
+
+.search-results-container {
+  height: 400px;
 }
 
 .home-user-challenge-cards {
@@ -259,15 +382,17 @@ footer h3 span {
   margin-bottom: 20px;
 }
 
-.user-challenges-side {
-  background-color: red;
-}
-
 /* search */
 
 .search-container {
-  background-color: blue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px 0px 10px;
+  align-items: center;
+  border: 1px solid gray;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .search-container h2 {
@@ -276,28 +401,18 @@ footer h3 span {
 
 .search-container input {
   margin-right: 10px;
-  border-radius: 20px;
+  margin-bottom: 20px;
   height: 30px;
+  width: 80%;
 }
 
 .search-container button {
   height: 30px;
-  border-radius: 10px;
   width: 80px;
 }
 
 .search-results-container::-webkit-scrollbar {
   display: none;
-}
-
-/* Challenge card */
-
-.challenge-card {
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid black;
-  padding: 20px;
-  width: 250px;
 }
 
 /* Search container */
@@ -307,6 +422,31 @@ footer h3 span {
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+/* Challenge card */
+
+.challenge-card {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(119, 118, 118);
+  background-color: rgb(58, 57, 57);
+  color: white;
+  padding: 20px;
+  width: 250px;
+  box-shadow: rgba(203, 203, 203, 0.24) 0px 3px 8px;
+  transition: all 0.3s linear;
+}
+
+.challenge-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(246, 244, 244, 0.22);
+  transform: scale(1.05);
+}
+
+.challenge-card-link {
+  text-decoration: none;
 }
 
 /* Challenge post */
@@ -327,7 +467,7 @@ footer h3 span {
 }
 
 .challenge-post {
-  background-color: aqua;
+  background-color: white;
   margin: 20px;
   position: relative;
   border-radius: 20px;
@@ -348,7 +488,6 @@ footer h3 span {
   display: flex;
   margin-top: 0px;
   padding: 20px;
-  background-color: green;
 }
 
 .user-logo {
@@ -358,7 +497,6 @@ footer h3 span {
   margin-right: 15px;
   border-radius: 10px;
   border: 1px solid gray;
-  background-color: red;
 }
 
 .user-logo img {
@@ -390,7 +528,7 @@ footer h3 span {
   width: 50px;
   height: auto;
   cursor: pointer;
-  color: red;
+  color: rgb(220, 11, 66);
 }
 
 .fav-icon-and-post-info {
@@ -403,17 +541,30 @@ footer h3 span {
   display: flex;
   justify-content: space-between;
   margin: 0px 30px 0px 30px;
+  font-size: 18px;
 }
 
 .post-navbar {
   margin: 20px;
-  background-color: green;
+  margin-bottom: 30px;
   display: flex;
 }
 
 .post-navbar button {
   width: 25%;
   height: 40px;
+  background-color: white;
+  border: none;
+  color: rgb(54, 52, 52);
+  font-size: 16px;
+  border-top: 1px solid rgb(176, 171, 171);
+  padding: 10px 0px 10px 0px;
+}
+
+.post-navbar button:hover {
+  cursor: pointer;
+  background-color: rgb(228, 226, 226);
+  transition: background-color 0.5s;
 }
 
 .post-navbar .icon {
@@ -443,7 +594,6 @@ footer h3 span {
   width: 100px;
   margin-top: 10px;
   margin-left: 20px;
-
   border-radius: 20px;
 }
 
@@ -462,6 +612,7 @@ footer h3 span {
   margin: 20px;
   white-space: pre-line;
   white-space: pre-wrap;
+  background-color: white;
 }
 
 .comment h3 {
@@ -493,6 +644,7 @@ footer h3 span {
 .forum-user-page-columns {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 }
 
 .user-page-main {
@@ -500,9 +652,9 @@ footer h3 span {
 }
 
 .user-page-right-side {
-  background-color: yellow;
   width: 30%;
   margin-top: 170px;
+  color: white;
 }
 
 .user-page-right-side .title {
@@ -513,7 +665,6 @@ footer h3 span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: green;
 }
 
 /* Popup */
@@ -525,7 +676,7 @@ footer h3 span {
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: gray;
+  background-color: rgb(58, 57, 57);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -533,7 +684,7 @@ footer h3 span {
 
 .popup-internal {
   position: relative;
-  background-color: yellow;
+  background-color: white;
   margin-bottom: 50px;
   width: 60%;
   border-radius: 20px;
@@ -563,19 +714,17 @@ p {
   height: 30px;
   border-radius: 10px;
 }
-
 .delete-challenge-container button .icon {
   width: 16px;
   height: auto;
   color: rgb(87, 85, 85);
 }
 
-/* Create challenge popup */
-/* =============================================== */
-
-.create-popup {
-  position: absolute;
-  background-color: green;
+.delete-challenge-container button:hover {
+  background-color: rgb(220, 11, 66);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s;
 }
 
 /* Update challenge & create challenge */
@@ -601,6 +750,12 @@ p {
 /* Title */
 .create-update-challenge-div h2 {
   margin-bottom: 50px;
+  color: white;
+}
+
+/* message */
+.create-update-challenge-div h3 {
+  color: white;
 }
 
 .update-form {
@@ -616,6 +771,8 @@ p {
   margin-bottom: 30px;
   margin-top: 30px;
   font-size: 20px;
+  background-color: rgb(58, 57, 57);
+  color: white;
 }
 
 .update-body {
@@ -624,6 +781,8 @@ p {
   height: 200px;
   font-size: 16px;
   margin-bottom: 30px;
+  background-color: rgb(58, 57, 57);
+  color: white;
 }
 
 .update-image {
@@ -632,6 +791,27 @@ p {
   border: 1px solid gray;
   padding: 5px;
   margin-bottom: 50px;
+  background-color: rgb(58, 57, 57);
+  color: white;
+}
+
+.update-image:focus,
+.update-body:focus,
+.update-title:focus {
+  outline: none;
+}
+
+.create-challenge-button {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.create-challenge-button:hover {
+  border: none;
+  background-color: rgb(220, 11, 66);
 }
 
 /* =============================================== */
@@ -641,6 +821,8 @@ p {
 .iq-test-container {
   width: 80%;
   margin: 30px auto;
+  color: white;
+  height: 100vh;
 }
 
 .iq-banner {
@@ -667,11 +849,17 @@ p {
 }
 
 .sign-up-button {
+  color: yellow;
+  font-size: 20px;
 }
 
 .question-and-answers {
   display: flex;
   justify-content: space-between;
+}
+
+.question-answers-hidden {
+  display: none;
 }
 
 .iq-question-div img {
@@ -691,7 +879,6 @@ p {
 }
 
 .image-container {
-  background-color: green;
   height: fit-content;
   padding: 10px;
   width: 20%;
@@ -704,6 +891,7 @@ p {
 .sign-up-message {
   margin-top: 50px;
   margin-bottom: 30px;
+  color: white;
 }
 
 .sign-up-form {
@@ -714,13 +902,19 @@ p {
   border: 1px solid gray;
   border-radius: 20px;
   padding: 20px 40px 20px 40px;
+  background-color: #3d3d4e;
+  border: 1px solid #53536a;
+  color: white;
 }
 
 .sign-up-form input {
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid white;
   margin-bottom: 20px;
   font-size: 16px;
+  opacity: 1;
+  background-color: #3d3d4e;
+  color: white;
 }
 
 .sign-up-form input:focus {
@@ -778,6 +972,9 @@ p {
   border-radius: 20px;
   margin: 100px auto;
   padding: 20px;
+  background-color: #3d3d4e;
+  border: 1px solid #53536a;
+  color: white;
 }
 
 .login-container h3 {
@@ -796,10 +993,12 @@ p {
 
 .login-form input {
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid white;
   margin-bottom: 20px;
   font-size: 16px;
   margin-bottom: 30px;
+  background-color: #3d3d4e;
+  color: white;
 }
 
 .login-form input:focus {

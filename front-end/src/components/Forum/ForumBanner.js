@@ -10,15 +10,24 @@ function ForumBanner() {
       <div className="banner-navbar">
         <div className="banner-button">
           <MdPerson className="icon" />
-          <NavLink to="/forum/userHome/my-page">My page</NavLink>
+          <NavLink to="/forum/userHome/my-page" className="forum-banner-link">
+            My page
+          </NavLink>
         </div>
         <div className="banner-button">
           <MdFavorite className="icon" />
-          <NavLink to="/forum/favorites/my-favorites">Favorites</NavLink>
+          <NavLink
+            to="/forum/favorites/my-favorites"
+            className="forum-banner-link"
+          >
+            Favorites
+          </NavLink>
         </div>
         <div className="banner-button">
           <MdHome className="icon" />
-          <NavLink to="/forum">Forum Home</NavLink>
+          <NavLink to="/forum" className="forum-banner-link">
+            Forum Home
+          </NavLink>
         </div>
       </div>
       <div className="user-icon">

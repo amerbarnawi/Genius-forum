@@ -7,7 +7,7 @@ function ChallengeCard({ challenge }) {
   const currentDate = new Date(challenge.date);
 
   return (
-    <Link to={path}>
+    <Link to={path} className="challenge-card-link">
       <div className="challenge-card">
         <h3>{challenge.title}</h3>
         <p>{currentDate.toDateString()}</p>

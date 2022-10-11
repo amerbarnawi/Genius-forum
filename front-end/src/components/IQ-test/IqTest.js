@@ -53,7 +53,9 @@ function IqTest() {
         )}
       </div>
 
-      <div className="question-and-answers">
+      <div
+        className={isTrue ? "question-answers-hidden" : "question-and-answers"}
+      >
         <div className="iq-question-div">
           <h3>Which is the missing square?</h3>
           <img src={iq_question} alt="IQ question." />

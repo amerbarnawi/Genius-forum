@@ -14,15 +14,15 @@ function IqInfo() {
         <h2>Intelligence quotient (IQ)</h2>
         <p>
           Is a total score derived from a set of standardized tests or subtests
-          designed to assess human intelligence. <br />
-          The abbreviation "IQ" was coined by the psychologist William Stern for
-          the German term "Intelligenzquotient". <br />
-          IQ scores are used for educational placement, assessment of
-          intellectual disability, and evaluation of job applicants.
+          designed to assess human intelligence. The abbreviation "IQ" was
+          coined by the psychologist William Stern for the German term
+          "Intelligenzquotient". IQ scores are used for educational placement,
+          assessment of intellectual disability, and evaluation of job
+          applicants.
         </p>
-        <NavLink to="/iq-test">
+        <NavLink to="/iq-test" className="iq-info-button">
           IQ test
-          <MdSchool />
+          <MdSchool className="icon" />
         </NavLink>
       </div>
     </div>

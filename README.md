@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Genius Forum Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Home page
 
-## Available Scripts
+![Home page](/front-end/src/assets/home-page.png)
 
-In the project directory, you can run:
+## Forum page
 
-### `npm start`
+![Forum page](/front-end/src/assets/forum-page.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Full-stack application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The project consist of front-end and back-end.
 
-### `npm test`
+## Project description
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What does this app offer?
 
-### `npm run build`
+The Genius Forum provides a platform for interaction between people who love challenges and logic puzzles, adding to that ( IQ test ).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- You can create your challenge ( as post ).
+- You can delete and update your challenge.
+- You can search for challenge by title.
+- You can add and delete ( Like & comment ).
+- You can add challenges to the favorites.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### How does this app work?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Anyone can visit the application home page and practice the IQ test, the user needs to pass the IQ test with a good score, and then he can register as a member of the forum.
 
-### `npm run eject`
+Note: this application have only one IQ question.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## The project structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Header & Footer
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Welcome Page.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. IQ-test page
 
-## Learn More
+4. Forum:
+   - Forum banner
+   - Home page:
+     - User challenges ( cards ).
+     - Search ( All challenges cards).
+     - Main ( All challenges as posts ).
+   - User home page:
+     - All user favorites (Cards).
+     - All user challenges (posts).
+   - Favorites page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## MUST–HAVE
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The project structure.
+- README file with description.
+- Welcome page.
+- IQ test page ( At least, one test as an experiment ).
+- Log in page.
+- Create-account page.
+- Forum pages:
+  - The main ( All challenges ).
+  - User page.
+  - Delete challenge.
+  - Create challenge.
+  - Update challenge.
+  - Buttons ( navbar - delete, update and create challenge ).
+  - Add and delete ( like & comment ).
+- Prepare the repository.
 
-### Code Splitting
+## NICE-TO-HAVE
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- The user can update and delete his/her account ( The back-end is ready).
+- The user can upload images ( in this app the user can use image URL ).
+- Real IQ test.
+  - Evaluate the result.
+  - Random questions.
+  - Features ( timer, hint ).
 
-### Analyzing the Bundle Size
+## The Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+I designed it by myself (responsive).
 
-### Making a Progressive Web App
+## Advice to use this app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. The best browser to use is ( Chrome ).
+2. Clone the repository to your computer.
 
-### Advanced Configuration
+   - [ npm install ] to install the npm packages and dependence in (back-end and front-end).
+   - Connect the application to MongoDB database by ( connection link ).
+   - Run the application:
+     - Front-end: npm start
+     - Back-end: npm run dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Languages & Frameworks
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    - HTML.5
+    - CSS.3
+    - JavaScript
+    - Node.JS
+    - Express.JS
+    - MongoDB
+    - React

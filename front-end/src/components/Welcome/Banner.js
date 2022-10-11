@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { MdForum, MdSchool } from "react-icons/md";
 import bannerImage from "../../assets/welcome-page/einstein.jpeg";
+// import back from "../../assets/background.jpeg";
 
 function Banner() {
   return (
@@ -18,12 +19,12 @@ function Banner() {
             intelligent.
           </p>
           <div className="links">
-            <NavLink to="/iq-test">
+            <NavLink to="/iq-test" className="banner-link">
               IQ-test
-              <MdSchool />
+              <MdSchool className="icon" />
             </NavLink>
-            <NavLink to="/forum">
-              Forum <MdForum />
+            <NavLink to="/forum" className="banner-link">
+              Forum <MdForum className="icon" />
             </NavLink>
           </div>
         </div>

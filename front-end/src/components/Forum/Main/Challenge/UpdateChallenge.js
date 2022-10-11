@@ -72,7 +72,7 @@ function UpdateChallenge({ challenge, setIsUpdate }) {
           className="update-image"
         />
       </div>
-      <NavLink onClick={() => create()}>
+      <NavLink onClick={() => create()} className="create-challenge-button">
         Submit <MdSend />
       </NavLink>
     </div>

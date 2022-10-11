@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import Favorites from "../Favorites/Favorites";
 import CreateChallenge from "../Main/Challenge/CreateChallenge";
-import Popup from "../Support/Popup";
 import UserChallenges from "../UserChallenges/UserChallenges";
 
 function UserPage() {
-  const [trigger, setTrigger] = useState(false);
-
-  const triggerPopup = () => {
-    setTrigger(true);
-  };
+  const [isCreate, setIsCreate] = useState(false);
 
   return (
     <div className="forum-user-page-columns">
@@ -18,13 +13,11 @@ function UserPage() {
         <textarea
           name="new-post"
           placeholder="Challenge us!"
-          onClick={triggerPopup}
+          onClick={() => setIsCreate(true)}
           className="input-create-challenge"
         ></textarea>
+        <>{isCreate ? <CreateChallenge setIsCreate={setIsCreate} /> : ""}</>
 
-        <Popup isTrigger={trigger} setTrigger={setTrigger}>
-          <CreateChallenge />
-        </Popup>
         <UserChallenges />
       </div>
       <div className="user-page-right-side">
