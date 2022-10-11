@@ -8,9 +8,9 @@
 
 ![Forum page](/front-end/src/assets/forum-page.png)
 
-## Challenge (Post)
+## Challenge (Fake post)
 
-![Forum page](/front-end/src/assets/challenge-post.png)
+<img src="/challenge-post.png" data-canonical-src="/challenge-post.png" width="340" height="600" />
 
 ## Full-stack application
 
