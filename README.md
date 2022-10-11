@@ -10,7 +10,7 @@
 
 ## Challenge (Fake post)
 
-<img src="/challenge-post.png" data-canonical-src="/challenge-post.png" width="340" height="600" />
+<img src="/front-end/src/assets/challenge-post.png" data-canonical-src="/front-end/src/assets/challenge-post.png" width="340" height="600" />
 
 ## Full-stack application
 
