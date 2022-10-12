@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useFetchData(url) {
+function useFetchData(url, isRender) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(undefined);
   const [data, setData] = useState({});
@@ -17,7 +17,7 @@ function useFetchData(url) {
         setError(`Something went wrong: ${error.message}`);
       }
     })();
-  }, [url, setData]);
+  }, [url, setData, isRender]);
 
   return { data, error, isLoading };
 }

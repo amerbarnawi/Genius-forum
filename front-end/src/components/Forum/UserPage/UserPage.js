@@ -5,6 +5,13 @@ import UserChallenges from "../UserChallenges/UserChallenges";
 
 function UserPage() {
   const [isCreate, setIsCreate] = useState(false);
+  const [isRender, setIsRender] = useState(false);
+
+  if (isRender) {
+    setTimeout(() => {
+      setIsRender(false);
+    }, 1000);
+  }
 
   return (
     <div className="forum-user-page-columns">
@@ -15,9 +22,18 @@ function UserPage() {
           onClick={() => setIsCreate(true)}
           className="input-create-challenge"
         ></textarea>
-        <>{isCreate ? <CreateChallenge setIsCreate={setIsCreate} /> : ""}</>
+        <>
+          {isCreate ? (
+            <CreateChallenge
+              setIsCreate={setIsCreate}
+              setIsRender={setIsRender}
+            />
+          ) : (
+            ""
+          )}
+        </>
 
-        <UserChallenges />
+        <UserChallenges isRender={isRender} setIsRender={setIsRender} />
       </div>
       <div className="user-page-right-side">
         <div className="title">

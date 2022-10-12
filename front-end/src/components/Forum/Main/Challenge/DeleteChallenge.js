@@ -25,7 +25,7 @@ function DeleteChallenge({ challengeId, setIsChallengeHidden }) {
       if (data.message.includes("done")) {
         setTimeout(() => {
           setIsChallengeHidden(true);
-        }, 3000);
+        }, 2500);
       }
     }
   }, [data, setIsChallengeHidden, isLoading]);
@@ -40,7 +40,7 @@ function DeleteChallenge({ challengeId, setIsChallengeHidden }) {
       <h2>Delete challenge</h2>
 
       {isLoading ? (
-        <h3>Loading...</h3>
+        <h3>{isClicked ? "Loading .." : ""}</h3>
       ) : error ? (
         <h3>{error}</h3>
       ) : (

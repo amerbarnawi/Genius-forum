@@ -10,9 +10,11 @@ function Main() {
   const { setFavoritesArray } = useFavorites();
   const { email, password } = userData;
   const [isCreate, setIsCreate] = useState(false);
+  const [isRender, setIsRender] = useState(false);
+  const [AllChallenges, setAllChallenges] = useState([]);
 
   const allChallengesUrl = `http://localhost:5000/api/forum/challenge/title/?title=&email=${email}&password=${password}`;
-  const { data, error, isLoading } = useFetchData(allChallengesUrl);
+  const { data, error, isLoading } = useFetchData(allChallengesUrl, isRender);
 
   const favoritesUrl = `http://localhost:5000/api/user/login?email=${userData.email}&password=${userData.password}`;
   const { data: user, isLoading: isLoadingUser } = useFetchData(favoritesUrl);
@@ -20,8 +22,15 @@ function Main() {
   useEffect(() => {
     if (data && !isLoadingUser) {
       setFavoritesArray(user.favorites);
+      setAllChallenges(data);
     }
   }, [isLoadingUser, data, setFavoritesArray, user.favorites]);
+
+  if (isRender) {
+    setTimeout(() => {
+      setIsRender(false);
+    }, 1000);
+  }
 
   if (error) {
     return <h2>{error}</h2>;
@@ -35,18 +44,31 @@ function Main() {
         onClick={() => setIsCreate(true)}
       ></textarea>
 
-      <div>{isCreate ? <CreateChallenge setIsCreate={setIsCreate} /> : ""}</div>
+      <div>
+        {isCreate ? (
+          <CreateChallenge
+            setIsCreate={setIsCreate}
+            setIsRender={setIsRender}
+          />
+        ) : (
+          ""
+        )}
+      </div>
 
       {isLoading ? (
         <h2>Loading ..</h2>
       ) : (
         <>
-          {!data[0] ? (
+          {!AllChallenges[0] ? (
             <h3>There are no challenges</h3>
           ) : (
-            data.map((challenge, index) => {
+            AllChallenges.map((challenge, index) => {
               return (
-                <ChallengePost key={index} originalChallenge={challenge} />
+                <ChallengePost
+                  key={index}
+                  originalChallenge={challenge}
+                  setIsRender={setIsRender}
+                />
               );
             })
           )}

@@ -4,16 +4,27 @@ import { useComment } from "./CommentProvider";
 import DeleteChallenge from "./DeleteChallenge";
 import { useLike } from "./LikeProvider";
 import UpdateChallenge from "./UpdateChallenge";
-import { MdDelete, MdEdit, MdThumbUp, MdComment, MdSend } from "react-icons/md";
+import {
+  MdDelete,
+  MdEdit,
+  MdThumbUp,
+  MdThumbUpOffAlt,
+  MdComment,
+  MdSend,
+} from "react-icons/md";
 import ChallengeContent from "./ChallengeContent";
+import { useLoginDetails } from "../../Login/LoginProvider";
 
 // Here are all the components of the challenge ( Post )
-function ChallengePost({ originalChallenge }) {
+function ChallengePost({ originalChallenge, setIsRender }) {
   const [challenge, setChallenge] = useState(originalChallenge);
   const [trigger, setTrigger] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
   const [isComments, setIsComments] = useState(false);
   const [isChallengeHidden, setIsChallengeHidden] = useState(false);
+
+  const { userData } = useLoginDetails();
+  const isLike = challenge.interaction.likes.includes(userData.userName);
 
   useEffect(() => {
     setChallenge(originalChallenge);
@@ -49,7 +60,11 @@ function ChallengePost({ originalChallenge }) {
   return (
     <div key={challenge._id}>
       {isUpdate ? (
-        <UpdateChallenge challenge={challenge} setIsUpdate={setIsUpdate} />
+        <UpdateChallenge
+          challenge={challenge}
+          setIsUpdate={setIsUpdate}
+          setIsRender={setIsRender}
+        />
       ) : (
         <div
           className={isChallengeHidden ? "challenge-hidden" : "challenge-post"}
@@ -72,8 +87,12 @@ function ChallengePost({ originalChallenge }) {
 
           <div className="post-navbar">
             <button onClick={() => updateLike(challenge, setChallenge)}>
-              Like
-              <MdThumbUp className="icon" />
+              Like{" "}
+              {isLike ? (
+                <MdThumbUp className="icon" />
+              ) : (
+                <MdThumbUpOffAlt className="icon" />
+              )}
             </button>
             <button onClick={() => changeCommentsAreaVisibility()}>
               Comment

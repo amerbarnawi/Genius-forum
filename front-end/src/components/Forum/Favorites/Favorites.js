@@ -21,6 +21,8 @@ function Favorites() {
         <h2>Loading...</h2>
       ) : error ? (
         <h2>{error}</h2>
+      ) : allChallenges.message ? (
+        <h2>Add challenges to your favorites.</h2>
       ) : allChallenges.filter((challenge) =>
           favoritesIds.includes(challenge._id)
         ).length > 0 ? (
@@ -34,7 +36,7 @@ function Favorites() {
             );
           })
       ) : (
-        <h3>Your favorite is empty.</h3>
+        <h3 className="empty-favorites-message">Your favorite is empty.</h3>
       )}
     </div>
   );

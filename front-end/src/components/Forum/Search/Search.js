@@ -23,6 +23,7 @@ function Search() {
     <>
       <div className="search-container">
         <h2>Search</h2>
+        <p>If empty: All challenges</p>
         <input
           type="text"
           name="searchValue"

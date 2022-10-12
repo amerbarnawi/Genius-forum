@@ -36,7 +36,7 @@ function SignUp() {
     email,
     password,
     iqScore,
-    logo: `https://robohash.org/${logo}`,
+    logo: `https://robohash.org/${logo ? logo : "love"}`,
   };
   const requestOptions = {
     method: "POST",

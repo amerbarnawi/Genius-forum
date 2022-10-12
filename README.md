@@ -8,9 +8,9 @@
 
 ![Forum page](/front-end/src/assets/forum-page.png)
 
-## Challenge (Post)
+## Challenge (Fake post)
 
-![Forum page](/front-end/src/assets/challenge-post.png)
+<img src="/front-end/src/assets/challenge-post.png" data-canonical-src="/front-end/src/assets/challenge-post.png" width="340" height="600" />
 
 ## Full-stack application
 
@@ -27,6 +27,7 @@ The Genius Forum provides a platform for interaction between people who love cha
 - You can search for challenge by title.
 - You can add and delete ( Like & comment ).
 - You can add challenges to the favorites.
+- You can not (update or delete ) a challenge if not yours.
 
 ### How does this app work?
 
@@ -69,6 +70,8 @@ Note: this application have only one IQ question.
   - Update challenge.
   - Buttons ( navbar - delete, update and create challenge ).
   - Add and delete ( like & comment ).
+  - Handling errors.
+  - Checking all possible situations.
 - Prepare the repository.
 
 ## NICE-TO-HAVE
@@ -90,7 +93,7 @@ I designed it by myself (responsive).
 2. Clone the repository to your computer.
 
    - [ npm install ] to install the npm packages and dependence in (back-end and front-end).
-   - Connect the application to MongoDB database by ( connection link ).
+   - Connect the application to MongoDB database by ( connection link & "genius-forum" as database ).
    - Run the application:
      - Front-end: npm start
      - Back-end: npm run dev

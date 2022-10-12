@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useLoginDetails } from "../../Login/LoginProvider";
 import { MdSend } from "react-icons/md";
 
-function CreateChallenge(props) {
+function CreateChallenge({ setIsCreate, setIsRender }) {
   const [isClicked, setIsClicked] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -44,9 +44,17 @@ function CreateChallenge(props) {
     error,
   } = useFetchByClick(isClicked, setIsClicked, url, requestOptions);
 
+  useEffect(() => {
+    if (message) {
+      if (message.includes("done")) {
+        setIsRender(true);
+      }
+    }
+  }, [setIsRender, message]);
+
   return (
     <div className="create-update-challenge-div">
-      <button onClick={() => props.setIsCreate(false)}>Close</button>
+      <button onClick={() => setIsCreate(false)}>Close</button>
       <h2>Create challenge</h2>
       <div className="create-challenge-message">
         {error ? <h2>{error}</h2> : message ? <h2>{message}</h2> : ""}

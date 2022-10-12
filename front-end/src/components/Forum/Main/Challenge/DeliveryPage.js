@@ -13,6 +13,8 @@ function ChallengeById() {
 
   const { data, error, isLoading } = useFetchData(url);
 
+  // data here is: Challenge by id.
+
   return (
     <div>
       {isLoading ? (
@@ -20,7 +22,7 @@ function ChallengeById() {
       ) : error ? (
         <h2>{error}</h2>
       ) : data.message ? (
-        <h3>{data.message}</h3>
+        <h2>{data.message}</h2>
       ) : (
         <ChallengePost originalChallenge={data} />
       )}
