@@ -396,6 +396,10 @@ footer h3 span {
 
 /* search */
 
+.search-side {
+  padding-right: 40px;
+}
+
 .search-container {
   color: white;
   display: flex;
