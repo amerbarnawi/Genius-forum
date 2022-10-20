@@ -60,7 +60,7 @@ function Main() {
       ) : (
         <>
           {!AllChallenges[0] ? (
-            <h3>There are no challenges</h3>
+            <h2>There are no challenges</h2>
           ) : (
             AllChallenges.map((challenge, index) => {
               return (

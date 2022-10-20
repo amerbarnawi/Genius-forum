@@ -20,7 +20,11 @@ function ChallengeContent({ challenge }) {
         <FavoriteIcon ChallengeId={challenge._id} className="favorite-icon" />
       </div>
 
-      <p className="challenge-body">{challenge.body}</p>
+      <div
+        className="challenge-body"
+        dangerouslySetInnerHTML={{ __html: challenge.body }}
+      ></div>
+
       {challenge.image !== "" ? (
         <img
           src={`${challenge.image}`}

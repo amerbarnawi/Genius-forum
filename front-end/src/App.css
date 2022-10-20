@@ -396,6 +396,10 @@ footer h3 span {
 
 /* search */
 
+.search-side {
+  padding-right: 40px;
+}
+
 .search-container {
   color: white;
   display: flex;
@@ -537,10 +541,31 @@ footer h3 span {
 }
 
 .challenge-body {
-  font-size: 22px;
+  font-size: 18px;
+  text-align: left;
   text-align: justify;
+  line-height: 1.5;
   white-space: pre-line;
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
+  margin: auto;
+  margin-bottom: 30px;
+  color: rgb(65, 65, 65);
+  max-width: 90%;
+}
+
+.challenge-body p {
+  line-height: 1.5;
+  text-align: justify;
+  max-width: 95%;
+  margin: auto;
+}
+
+.challenge-body ul {
+  margin-left: 30px;
+}
+
+.challenge-body ol {
+  margin-left: 30px;
 }
 
 .favorite-icon {
@@ -803,7 +828,29 @@ p {
   padding: 10px;
   height: 200px;
   font-size: 16px;
+  background-color: rgb(58, 57, 57);
+  color: white;
+  width: 100%;
+}
+
+.text-editor {
+  position: relative;
   margin-bottom: 30px;
+}
+
+.ckEditor-button {
+  right: 5px;
+  top: 5px;
+  position: absolute;
+  background-color: rgb(58, 57, 57);
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.ckEditor-button .icon {
   background-color: rgb(58, 57, 57);
   color: white;
 }

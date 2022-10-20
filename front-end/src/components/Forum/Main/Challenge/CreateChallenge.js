@@ -2,20 +2,33 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useFetchByClick from "../../../Hooks/FetchByClick";
 import { useLoginDetails } from "../../Login/LoginProvider";
-import { MdSend } from "react-icons/md";
+import { MdSend, MdEdit } from "react-icons/md";
+import { CKEditor } from "ckeditor4-react";
 
 function CreateChallenge({ setIsCreate, setIsRender }) {
   const [isClicked, setIsClicked] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
+  const [isEditor, setIsEditor] = useState(false);
+
+  const textEditor = () => {
+    setIsEditor(!isEditor);
+    setBody("");
+  };
 
   const getTitle = (e) => {
     setTitle(e.target.value);
   };
+
   const getBody = (e) => {
-    setBody(e.target.value);
+    if (isEditor) {
+      setBody(e.editor.getData());
+    } else {
+      setBody(e.target.value);
+    }
   };
+
   const getImage = (e) => {
     setImage(e.target.value);
   };
@@ -68,13 +81,35 @@ function CreateChallenge({ setIsCreate, setIsRender }) {
           onChange={getTitle}
           className="update-title"
         />
-        <textarea
-          value={body}
-          name="body"
-          placeholder="The challenge .."
-          onChange={getBody}
-          className="update-body"
-        ></textarea>
+
+        <div className="text-editor">
+          {isEditor ? (
+            <CKEditor
+              config={{
+                removeButtons: ["Image"],
+              }}
+              data={body}
+              type="classic"
+              style={{
+                borderColor: "gray",
+                marginBottom: "20px",
+              }}
+              onChange={getBody}
+            />
+          ) : (
+            <textarea
+              value={body}
+              name="body"
+              placeholder="The challenge .."
+              onChange={getBody}
+              className="update-body"
+            ></textarea>
+          )}
+          <NavLink className="ckEditor-button" onClick={() => textEditor()}>
+            <MdEdit className="icon" />
+          </NavLink>
+        </div>
+
         <input
           type="text"
           value={image}
