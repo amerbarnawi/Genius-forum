@@ -70,8 +70,8 @@ Note: this application have only one IQ question.
   - Update challenge.
   - Buttons ( navbar - delete, update and create challenge ).
   - Add and delete ( like & comment ).
-  - Handling errors.
-  - Checking all possible situations.
+- Handling errors.
+- Checking all possible situations.
 - Prepare the repository.
 
 ## NICE-TO-HAVE
