@@ -14,7 +14,7 @@ function CreateChallenge({ setIsCreate, setIsRender }) {
 
   const textEditor = () => {
     setIsEditor(!isEditor);
-    setBody("");
+    setBody(body);
   };
 
   const getTitle = (e) => {
@@ -85,10 +85,12 @@ function CreateChallenge({ setIsCreate, setIsRender }) {
         <div className="text-editor">
           {isEditor ? (
             <CKEditor
+              className="ck-ck"
               config={{
+                uiColor: "#8a8888",
                 removeButtons: ["Image"],
               }}
-              data={body}
+              initData={`${body}`}
               type="classic"
               style={{
                 borderColor: "gray",

@@ -8,6 +8,10 @@
 
 ![Forum page](/front-end/src/assets/forum-page.png)
 
+## Chat room
+
+![Chat room](/front-end/src/assets/chat-room.png)
+
 ## Challenge (Fake post)
 
 <img src="/front-end/src/assets/challenge-post.png" data-canonical-src="/front-end/src/assets/challenge-post.png" width="340" height="600" />
@@ -28,6 +32,7 @@ The Genius Forum provides a platform for interaction between people who love cha
 - You can add and delete ( Like & comment ).
 - You can add challenges to the favorites.
 - You can not (update or delete ) a challenge if not yours.
+- You can chat with others in the public room.
 
 ### How does this app work?
 
@@ -53,6 +58,7 @@ Note: this application have only one IQ question.
      - All user favorites (Cards).
      - All user challenges (posts).
    - Favorites page.
+   - Public chat room.
 
 ## MUST–HAVE
 

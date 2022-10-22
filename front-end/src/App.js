@@ -12,6 +12,7 @@ import ChallengeById from "./components/Forum/Main/Challenge/DeliveryPage";
 import UserPage from "./components/Forum/UserPage/UserPage";
 import Favorites from "./components/Forum/Favorites/Favorites";
 import SignUp from "./components/Forum/SignUp/SignUp";
+import PublicRoom from "./components/Forum/Chat/Public/PublicRoom";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="iq-test" element={<IqTest />} />
               <Route element={<ProtectedRoute />}>
                 <Route path="forum" element={<Forum />} replace>
+                  <Route path="chat/:id" element={<PublicRoom />} />
                   <Route path="favorites/:id" element={<Favorites />} />
                   <Route path="userHome/:id" element={<UserPage />} />
                   <Route

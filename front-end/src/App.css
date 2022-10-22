@@ -1088,6 +1088,121 @@ p {
   color: yellow;
 }
 
+/* =========================================================== */
+/* Chat Room : */
+/* =========================================================== */
+
+.chat-room-container {
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 20px;
+  border: 2px solid gray;
+  border-top-right-radius: 0px;
+  border-top: 15px solid white;
+}
+
+.users-and-messages-area-container {
+  display: flex;
+  height: 500px;
+  background-color: rgb(58, 57, 57);
+  border-top-left-radius: 20px;
+  border-bottom: 2px solid gray;
+}
+
+.online-users-area {
+  flex: 1;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-right: 2px solid gray;
+  overflow: scroll;
+}
+
+.messages-area {
+  flex: 4;
+  overflow: scroll;
+  padding: 20px;
+  text-align: left;
+}
+
+.message-card {
+  background-color: rgb(105, 103, 103);
+  color: white;
+  display: flex;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.user-name-and-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15px;
+  max-width: 100%;
+}
+
+.user-name-and-message h4 {
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+.user-name-and-message p {
+  width: 100%;
+}
+
+.message-card img {
+  width: 60px;
+  height: auto;
+}
+
+.online-user-card {
+  display: flex;
+  margin: 20px auto;
+  width: 80%;
+  align-items: center;
+}
+
+.online-user-card img {
+  width: 40px;
+  padding: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.online-user-card h4 {
+  margin-left: 10px;
+  color: white;
+  font-weight: 300;
+}
+
+.user-area input {
+  width: 60%;
+  font-size: 22px;
+  padding: 10px;
+  margin: 20px auto;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: rgb(223, 219, 219);
+}
+
+.user-area p {
+  color: white;
+  margin-top: 10px;
+}
+
+.user-area-button {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+}
+
+.user-area-button:hover {
+  background-color: rgb(220, 11, 66);
+}
+
 /* =============================================== */
 
 @media screen and (max-width: 600px) {
@@ -1259,6 +1374,14 @@ p {
   .iq-test-container {
     height: 300vh;
   }
+}
+
+/* =========================================================== */
+
+/* Ck-Editor */
+
+.cke_1 .cke_bottom {
+  display: none;
 }
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {

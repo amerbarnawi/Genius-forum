@@ -13,7 +13,10 @@ function ChallengeContent({ challenge }) {
           </div>
           <div className="post-info">
             <h2 className="post-title">{challenge.title}</h2>
-            <p>By:{challenge.userName ? challenge.userName : "Admin"}</p>
+            <p>
+              By:{" "}
+              {challenge.userName ? challenge.userName.toUpperCase() : "Admin"}
+            </p>
             <p>{currentDate.toDateString()}</p>
           </div>
         </div>

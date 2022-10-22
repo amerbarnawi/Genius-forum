@@ -1,15 +1,34 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useLoginDetails } from "../Forum/Login/LoginProvider";
-import { MdHome, MdFavorite, MdPerson } from "react-icons/md";
+import { MdHome, MdFavorite, MdPerson, MdChat } from "react-icons/md";
+import { usePublicChat } from "./Chat/Public/ChatProvider";
 
 function ForumBanner() {
   const { userData } = useLoginDetails();
   const { id } = useParams();
 
+  const { setIsLogin } = usePublicChat();
+
   return (
     <div className="forum-banner">
       <div className="banner-navbar">
+        {/* Chat room button */}
+        <div className="banner-button">
+          <MdChat className={id === "chat-room" ? "icon clicked" : "icon"} />
+          <NavLink
+            onClick={() => setIsLogin(true)}
+            to="/forum/chat/chat-room"
+            className={
+              id === "chat-room"
+                ? "forum-banner-link clicked"
+                : "forum-banner-link"
+            }
+          >
+            Chat Room
+          </NavLink>
+        </div>
+        {/* User page button */}
         <div className="banner-button">
           <MdPerson className={id === "my-page" ? "icon clicked" : "icon"} />
           <NavLink
@@ -23,6 +42,7 @@ function ForumBanner() {
             My page
           </NavLink>
         </div>
+        {/* Favorites button */}
         <div className="banner-button">
           <MdFavorite
             className={id === "my-favorites" ? "icon clicked" : "icon"}
@@ -38,6 +58,7 @@ function ForumBanner() {
             Favorites
           </NavLink>
         </div>
+        {/* Home button */}
         <div className="banner-button">
           <MdHome className={id === undefined ? "icon clicked" : "icon"} />
           <NavLink
